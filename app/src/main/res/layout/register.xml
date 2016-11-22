@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#e91c1a"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e91b1a"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/Register">
+
+        <TextView
+            android:text="Register"
+            android:textStyle="bold"
+          android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:id="@+id/tvRegister"
+            android:gravity="center"
+
+        />
+</android.support.v7.widget.Toolbar>
+    <TextView
+        android:text="NeoSTORE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textNeo"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:gravity="center" />
+
+    <EditText
+        android:hint="First Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etFirstname"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16sp"
+        android:background="@drawable/border"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_action_username"
+        android:drawablePadding="10dp"
+        android:padding="5dp" />
+
+    <EditText
+        android:hint="Last Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLastname"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:background="@drawable/border"
+        android:drawableLeft="@drawable/ic_action_username"
+        android:drawablePadding="10dp"
+        android:padding="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:textColorHint="#FFFFFF"
+        android:textStyle="bold"
+        android:background="@drawable/border"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/etEmail"
+
+        android:hint="Email" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_action_pass"
+        android:drawablePadding="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#FFFFFF"
+        android:background="@drawable/border"
+        android:padding="5dp"
+        android:hint="Password"
+        android:id="@+id/etPassword" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+       android:drawableLeft="@drawable/ic_action_pass"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:background="@drawable/border"
+        android:hint="Confirm Password"
+        android:id="@+id/etConfirmPassword" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Gender"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/radioGender"
+         android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/genderMale"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:checked="true"
+             />
+
+        <RadioButton
+            android:id="@+id/genderFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+
+            android:text="Female" />
+
+    </RadioGroup>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/border"
+        android:textStyle="bold"
+        android:hint="Phone Number"
+        android:drawableLeft="@drawable/ic_action_phone"
+        android:drawablePadding="10dp"
+        android:inputType="phone"
+        android:id="@+id/etPhone" />
+
+    <CheckBox
+        android:text="I agree the Terms and Conditions"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox" />
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:text="Register"/>
+
+</LinearLayout>
+</ScrollView>
