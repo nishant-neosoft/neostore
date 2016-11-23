@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -10,8 +9,6 @@
         <item name="windowNoTitle">true</item>
         <item name="android:background">@color/colorFreeSpeechRed</item>
     </style>
-
-
     <style name="NeoSOFT">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -22,14 +19,7 @@
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_marginBottom">@dimen/neostorebottom_pad</item>
     </style>
-
-
-
-
-
-
     <!--Textview with image-->
-
     <style name="EditTextWithImage">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -45,8 +35,6 @@
         <item name="android:background">@drawable/square_white_border_style</item>
         <item name="android:inputType">textPersonName</item>
     </style>
-
-
     <style name="SubmitButtoninWhite">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
@@ -57,16 +45,10 @@
         <item name="android:layout_marginBottom">@dimen/submit_down_pad</item>
         <item name="android:textSize">26dp</item>
         <item name="android:textStyle">bold</item>
-
     </style>
-
     <style name="SubmitButtoninWhite.Large">
         <item name="android:textSize">26dp</item>
-
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 </resources>
