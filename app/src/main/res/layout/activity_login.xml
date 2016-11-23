@@ -28,7 +28,7 @@
             android:id="@+id/button"
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
-            android:text="LOGIN" />
+            android:text="@string/login" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
