@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_radius">5dp</dimen>
+    <dimen name="tv_side_pad">20dp</dimen>
+    <dimen name="tv_updown_pad">10dp</dimen>
+    <dimen name="submit_up_pad">40dp</dimen>
+    <dimen name="submit_down_pad">30dp</dimen>
+    <dimen name="neostorebottom_pad">30dp</dimen>
+</resources>

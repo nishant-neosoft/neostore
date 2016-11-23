@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView style="@style/NeoSOFT" />
+        <EditText
+            android:id="@+id/editText2"
+            style="@style/EditTextWithImage"
+            android:drawableLeft="@drawable/ic_username"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/editText"
+            style="@style/EditTextWithImage"
+            android:drawableLeft="@drawable/ic_password"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorWhite" />
+        <Button
+            android:id="@+id/button"
+            style="@style/SubmitButtoninWhite"
+            android:background="@drawable/submit_white_style"
+            android:text="@string/login" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="DONT HAVE AN ACCOUNT?"
+            android:textSize="18dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_weight="0.91" />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textSize="40dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/add_style"
+            android:textColor="@color/colorWhite"
+            android:text="+"/>
+    </LinearLayout>
+</LinearLayout>
