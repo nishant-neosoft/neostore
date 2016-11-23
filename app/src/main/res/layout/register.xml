@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#bb0100">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,9 +28,7 @@
                 android:text="Register"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold"
-
-                />
+                android:textStyle="bold" />
         </android.support.v7.widget.Toolbar>
 
         <TextView
@@ -94,7 +90,6 @@
             android:padding="5dp"
             android:textColorHint="#FFFFFF"
             android:textSize="16sp"
-
             android:textStyle="bold" />
 
         <EditText
@@ -129,7 +124,7 @@
             android:padding="5dp"
             android:textColorHint="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -146,7 +141,7 @@
                 android:text="Gender"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <RadioGroup
                 android:id="@+id/radioGender"
@@ -159,10 +154,10 @@
                     android:id="@+id/genderMale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
                     android:checked="true"
                     android:text="Male"
                     android:textColor="#FFFFFF"
-                    android:buttonTint="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -170,14 +165,12 @@
                     android:id="@+id/genderFemale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Female"
                     android:buttonTint="@color/white"
+                    android:text="Female"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
             </RadioGroup>
-
         </LinearLayout>
 
         <EditText
@@ -201,29 +194,28 @@
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/white"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="15dp"
-            android:textStyle="bold"
-
+            android:buttonTint="@color/white"
             android:text="@string/terms"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
 
         <Button
             android:id="@+id/angry_btn"
             android:layout_width="match_parent"
-            android:layout_gravity="center"
             android:layout_height="50dp"
-            android:background="@drawable/buttonshape"
-            android:text="REGISTER"
-            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonshape"
+            android:text="REGISTER"
             android:textColor="#bb0100"
-            android:textStyle="bold"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>
