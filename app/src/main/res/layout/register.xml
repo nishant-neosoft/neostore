@@ -3,218 +3,227 @@
 <ScrollView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="#e91c1a"
-    android:layout_height="match_parent">
-
-
-<LinearLayout
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#bb0100">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#e91b1a"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/Register">
-
-        <TextView
-            android:text="Register"
-            android:textStyle="bold"
-          android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#FFFFFF"
-            android:padding="10dp"
-            android:id="@+id/tvRegister"
-            android:gravity="center"
-
-        />
-</android.support.v7.widget.Toolbar>
-    <TextView
-        android:text="NeoSTORE"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textNeo"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="40sp"
-        android:gravity="center" />
-
-    <EditText
-        android:hint="First Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etFirstname"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        android:background="@drawable/border"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_action_username"
-        android:drawablePadding="10dp"
-        android:padding="5dp" />
-
-    <EditText
-        android:hint="Last Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etLastname"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="15dp"
-        android:textColorHint="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:background="@drawable/border"
-        android:drawableLeft="@drawable/ic_action_username"
-        android:drawablePadding="10dp"
-        android:padding="5dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:textColorHint="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/border"
-        android:drawableLeft="@drawable/ic_action_email"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:drawablePadding="10dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/etEmail"
-
-        android:hint="Email" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_action_pass"
-        android:drawablePadding="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="15dp"
-        android:textColorHint="#FFFFFF"
-        android:background="@drawable/border"
-        android:padding="5dp"
-        android:hint="Password"
-        android:id="@+id/etPassword" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-       android:drawableLeft="@drawable/ic_action_pass"
-        android:drawablePadding="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:padding="5dp"
-        android:background="@drawable/border"
-        android:hint="Confirm Password"
-        android:id="@+id/etConfirmPassword" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e91b1a"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Register"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                />
+        </android.support.v7.widget.Toolbar>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:text="Gender"
-            android:padding="10dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" />
-
-    <RadioGroup
-        android:id="@+id/radioGender"
-         android:padding="5dp"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/genderMale"
-            android:layout_width="wrap_content"
-            android:textStyle="bold"
+            android:id="@+id/textNeo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Male"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:text="NeoSTORE"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:checked="true"
-             />
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/genderFemale"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/etFirstname"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_username"
+            android:drawablePadding="10dp"
+            android:hint="First Name"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
             android:textSize="16sp"
-            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
-            android:text="Female" />
+        <EditText
+            android:id="@+id/etLastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_username"
+            android:drawablePadding="10dp"
+            android:hint="Last Name"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    </RadioGroup>
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:drawablePadding="10dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:textSize="16sp"
+
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_pass"
+            android:drawablePadding="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_pass"
+            android:drawablePadding="10dp"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Gender"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/radioGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <RadioButton
+                    android:id="@+id/genderMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Male"
+                    android:textColor="#FFFFFF"
+                    android:buttonTint="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/genderFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:buttonTint="@color/white"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:drawableLeft="@drawable/ic_action_phone"
+            android:drawablePadding="10dp"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:padding="5dp"
+            android:textColorHint="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/white"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+
+            android:text="@string/terms"
+            android:textColor="#FFFFFF" />
+
+
+        <Button
+            android:id="@+id/angry_btn"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:background="@drawable/buttonshape"
+            android:text="REGISTER"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="#bb0100"
+            android:textStyle="bold"
+            android:textSize="25sp" />
 
     </LinearLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#FFFFFF"
-        android:textSize="16sp"
-        android:padding="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/border"
-        android:textStyle="bold"
-        android:hint="Phone Number"
-        android:drawableLeft="@drawable/ic_action_phone"
-        android:drawablePadding="10dp"
-        android:inputType="phone"
-        android:id="@+id/etPhone" />
-
-    <CheckBox
-        android:text="I agree the Terms and Conditions"
-        android:textColor="#FFFFFF"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox" />
-
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="30dp"
-    android:text="Register"/>
-
-</LinearLayout>
 </ScrollView>
