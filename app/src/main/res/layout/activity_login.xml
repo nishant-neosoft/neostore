@@ -10,25 +10,27 @@
         android:layout_weight="9"
         android:gravity="center"
         android:orientation="vertical">
-        <TextView style="@style/NeoSOFT" />
+        <TextView style="@style/NeoSOFT"
+            android:id="@+id/txtView"/>
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edtEmail"
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_username"
-            android:hint="Name"
-            android:inputType="textPersonName" />
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtPass"
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_password"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="@color/colorWhite" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnLogin"
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
             android:text="@string/login" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
