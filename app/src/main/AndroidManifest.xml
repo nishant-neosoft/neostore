@@ -13,6 +13,12 @@
             android:name=".RegisterScreen"
             android:label="@string/title_activity_register_screen"
             android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".HomePage"
+            android:label="HomePage"
+            android:theme="@style/AppTheme"/>
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"

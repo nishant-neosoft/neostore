@@ -25,7 +25,7 @@
             android:inputType="textPassword"
             android:textColorHint="@color/colorWhite" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/login"
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
             android:text="@string/login" />

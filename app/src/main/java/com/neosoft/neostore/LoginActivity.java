@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class LoginActivity extends Activity {
     Button Signup;
+    Button Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +22,15 @@ public class LoginActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        Login = (Button) findViewById(R.id.login);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, HomePage.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
