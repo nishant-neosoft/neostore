@@ -50,6 +50,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:textSize="40dp"
+            android:id="@+id/signup"
             android:layout_marginTop="3dp"
             android:background="@drawable/add_style"
             android:textColor="@color/colorWhite"
