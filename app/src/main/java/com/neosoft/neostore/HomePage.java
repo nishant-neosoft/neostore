@@ -7,6 +7,8 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.relex.circleindicator.CircleIndicator;
+
 
 public class HomePage extends FragmentActivity {
     HomepageAdapter pageAdapter;
@@ -19,13 +21,16 @@ public class HomePage extends FragmentActivity {
         pageAdapter = new HomepageAdapter(getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
         pager.setAdapter(pageAdapter);
+        CircleIndicator indicator = (CircleIndicator)findViewById( R.id.indicator);
+        indicator.setViewPager(pager);
     }
 
     private List<Fragment> getFragments() {
         List<Fragment> fList = new ArrayList<Fragment>();
         fList.add(HomepageFragment.newInstance(R.drawable.furniture1));
         fList.add(HomepageFragment.newInstance(R.drawable.furniture));
-        fList.add(HomepageFragment.newInstance(R.drawable.furniture3));
+        fList.add(HomepageFragment.newInstance(R.drawable.furniture2));
         return fList;
     }
+
 }
