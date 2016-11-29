@@ -10,8 +10,7 @@
         android:layout_weight="9"
         android:gravity="center"
         android:orientation="vertical">
-        <TextView style="@style/NeoSOFT"
-            android:id="@+id/txtView"/>
+        <TextView style="@style/NeoSOFT"/>
         <EditText
             android:id="@+id/edtEmail"
             style="@style/EditTextWithImage"
@@ -49,6 +48,7 @@
             android:textColor="@color/colorWhite"
             android:layout_weight="0.91" />
         <Button
+            android:id="@+id/btnRegister"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:textSize="40dp"

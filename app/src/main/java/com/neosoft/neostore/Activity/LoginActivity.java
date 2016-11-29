@@ -1,34 +1,40 @@
 package com.neosoft.neostore.Activity;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.neosoft.neostore.Login.LoginResponseModel;
 import com.neosoft.neostore.R;
+import com.neosoft.neostore.ServiceAPI.Services;
 
-import java.io.IOException;
+import java.util.regex.Pattern;
 
 import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Response;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+import static com.neosoft.neostore.ServiceAPI.UserAPI.LOGIN_URL;
 
-    Button btnLogin;
-    TextView txtV;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener ,Services.ApiResponse{
+
+    public static String ERROR_EMPTY_EMAIL    = "Please enter Email!";
+    public static String ERROR_INVALID_EMAIL    = "Please enter valid Email!";
+    public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
+    public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+");
+
+    Button btnLogin, btnRegister;
     EditText editEmail, editPass;
-    String email, pass, res = null,resUname=null, resEmail= null;
-    public static final String URL_LOGIN = "http://staging.php-dev.in:8844/trainingapp/api/users/login";
-
+    String email, pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,54 +43,73 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editEmail = (EditText) findViewById(R.id.edtEmail);
         editPass = (EditText) findViewById(R.id.edtPass);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(this);
+        btnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        new Login().execute();
+        switch (view.getId()) {
+            case R.id.btnLogin:
+                if (validate()) {
+                    email = String.valueOf(editEmail.getText());
+                    pass = String.valueOf(editPass.getText());
+
+                    RequestBody requestBody = new FormBody.Builder()
+                            .add("email", email)
+                            .add("password", pass)
+                            .build();
+
+                    Services ser = new Services(LOGIN_URL, requestBody,this);
+                    ser.execute(requestBody);
+                    Log.d("Response ---->>> ", "Service called");
+                }
+            break;
+
+            case R.id.btnRegister:
+                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(intent);
+        }
     }
 
-    public class Login extends AsyncTask<String, Void, String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            email = editEmail.getText().toString();
-            pass = editPass.getText().toString();
+    boolean validate()
+    {
+        boolean isValid;
+        if ( isEmpty( editEmail ) ) {
+            editEmail.setError( ERROR_EMPTY_EMAIL );
+            return isValid = false;
+        }
+        if ( ! EMAIL_ADDRESS_PATTERN.matcher(editEmail.getText().toString()).matches())
+        {
+            editEmail.setError( ERROR_INVALID_EMAIL );
+            return isValid = false;
+        }
+        else {
+            editEmail.setError( null );
+            isValid = true;
         }
 
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                OkHttpClient client = new OkHttpClient();
-                RequestBody requestBody = new FormBody.Builder()
-                        .add("email", email)
-                        .add("password", pass)
-                        .build();
-
-                Request request = new Request.Builder()
-                        .url(URL_LOGIN)
-                        .post(requestBody)
-                        .build();
-
-                Response response = client.newCall(request).execute();
-                res = response.body().string();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return res;
+        if ( isEmpty( editPass ) ) {
+            editPass.setError( ERROR_EMPTY_PASSWORD );
+            return isValid = false;
+        }
+        else {
+            editPass.setError( null );
+            isValid = true;
         }
 
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        return isValid;
+    }
 
-            LoginResponseModel model = new Gson().fromJson(s, LoginResponseModel.class);
-            resUname = model.getData().getUsername();
-            resEmail = model.getData().getEmail();
+    public boolean isEmpty( EditText editText ) {
+        return editText.getText().toString().trim().isEmpty();
+    }
 
-            Log.d("Name and email --->  ",resUname+ "  and  "+resEmail);
-        }
+    @Override
+    public void onSuccess(String response) {
+        Log.e(LoginActivity.class.getSimpleName(),"onSuccess response "+response);
+
     }
 }

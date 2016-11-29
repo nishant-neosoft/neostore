@@ -3,9 +3,6 @@ package com.neosoft.neostore.ServiceAPI;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.neosoft.neostore.Login.LoginResponseModel;
-
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
@@ -13,14 +10,18 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class Services extends AsyncTask<RequestBody, Void, String> {
 
+
+public class Services extends AsyncTask<RequestBody, Void, String> {
+private final String TAG=Services.class.getSimpleName();
     private String url ;
-    String res;
+    String res, modelClass;
     RequestBody requestBody;
-    public Services(String url, RequestBody requestBody){
+    ApiResponse apiResponse;
+    public Services(String url,RequestBody requestBody, ApiResponse apiResponse){
         this.url = url;
         this.requestBody = requestBody;
+        this.apiResponse = apiResponse;
     }
 
     @Override
@@ -31,7 +32,7 @@ public class Services extends AsyncTask<RequestBody, Void, String> {
                     .url(url)
                     .post(requestBodies[0])
                     .build();
-
+            Log.d("Response --->  ","Call after execution");
             Response response = client.newCall(request).execute();
             res = response.body().string();
         } catch (IOException e) {
@@ -43,10 +44,12 @@ public class Services extends AsyncTask<RequestBody, Void, String> {
     @Override
     protected void onPostExecute(String response) {
         super.onPostExecute(response);
-        LoginResponseModel model = new Gson().fromJson(response, LoginResponseModel.class);
-        String resUname = model.getData().getUsername();
-        String resEmail = model.getData().getEmail();
 
-        Log.d("Name and email --->  ",resUname+ "  and  "+resEmail);
+        apiResponse.onSuccess(response);
     }
+
+    public interface ApiResponse
+   {
+       void onSuccess(String response);
+   }
 }

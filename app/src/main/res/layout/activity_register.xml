@@ -100,7 +100,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorWhite"
-                    android:checked="true"
                     android:text="Male"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
@@ -138,7 +137,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/register_btn"
+            android:id="@+id/btnRegister"
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
             android:text="REGISTER" />
