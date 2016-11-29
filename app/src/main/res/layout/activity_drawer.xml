@@ -4,25 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:background="@color/colornightrider"
     android:layout_height="match_parent"
+    android:background="@color/colornightrider"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
+
     <include
-        layout="@layout/shivani_design"
+        layout="@layout/homepage"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <android.support.design.widget.NavigationView
         android:id="@+id/navlayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/drawer_header"
         android:background="@color/colornightrider"
+        app:headerLayout="@layout/drawer_header"
         app:itemBackground="@drawable/drawer_sltn"
-        app:itemTextAppearance="?android:attr/textAppearanceMedium"
         app:itemIconTint="@color/colorWhite"
+        app:itemTextAppearance="?android:attr/textAppearanceMedium"
         app:itemTextColor="@color/colorWhite"
-        app:theme="@style/AppTheme.Drawer"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"
+        app:theme="@style/AppTheme.Drawer" />
 </android.support.v4.widget.DrawerLayout>
