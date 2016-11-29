@@ -25,35 +25,40 @@
             android:inputType="textPassword"
             android:textColorHint="@color/colorWhite" />
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
             android:text="@string/login" />
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:weightSum="1">
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="DONT HAVE AN ACCOUNT?"
-            android:textSize="18dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="@dimen/tv_side_pad"
             android:gravity="center_vertical"
             android:textStyle="bold"
+            android:layout_gravity="center|start"
             android:textColor="@color/colorWhite"
-            android:layout_weight="0.91" />
+            />
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:textSize="40dp"
-            android:id="@+id/signup"
-            android:layout_marginTop="3dp"
+            android:textSize="40sp"
+            android:id="@+id/btn_login_signup"
             android:background="@drawable/add_style"
             android:textColor="@color/colorWhite"
-            android:text="+"/>
-    </LinearLayout>
+            android:layout_marginRight="@dimen/tv_side_pad"
+            android:layout_marginBottom="5dp"
+            android:text="+"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
 </LinearLayout>
