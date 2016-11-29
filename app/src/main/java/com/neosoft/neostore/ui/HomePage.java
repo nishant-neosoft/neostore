@@ -1,9 +1,14 @@
-package com.neosoft.neostore;
+package com.neosoft.neostore.ui;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+
+import com.neosoft.neostore.R;
+import com.neosoft.neostore.adapter.HomepageAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +27,7 @@ public class HomePage extends FragmentActivity {
         ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
         pager.setAdapter(pageAdapter);
         CircleIndicator indicator = (CircleIndicator)findViewById( R.id.indicator);
+        indicator.setBackgroundColor(Color.parseColor("#00000000"));
         indicator.setViewPager(pager);
     }
 

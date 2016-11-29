@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:orientation="horizontal">
 
-
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:orientation="horizontal">
+        android:layout_height="260dp"
+        android:id="@+id/relative">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="250dp" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignBottom="@+id/viewpager"/>
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/viewpager" />
 
+    </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/viewpager"
+            android:layout_below="@+id/relative"
             android:layout_centerHorizontal="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:layout_marginBottom="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@color/colorWhite"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <Button
                     android:id="@+id/tables"
                     style="@style/HomepageButton"
                     android:drawableLeft="@drawable/table"
                     android:gravity="top|right"
-                    android:text="Tables" />
+                    android:text="Tables"
+                    android:width="0dp"
+                    />
 
                 <Button
                     android:id="@+id/sofas"
@@ -52,35 +56,37 @@
                     android:layout_marginRight="10dp"
                     android:drawableRight="@drawable/sofa"
                     android:gravity="bottom|left"
-                    android:text="Sofas" />
+                    android:text="Sofas"
+                    android:width="0dp"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@color/colorWhite"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <Button
                     android:id="@+id/chairs"
                     style="@style/HomepageButton"
                     android:drawableLeft="@drawable/chair"
                     android:gravity="top|right"
-                    android:text="Chairs" />
+                    android:text="Chairs"
+                    android:width="0dp"/>
 
                 <Button
                     android:id="@+id/cupboard"
                     style="@style/HomepageButton"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="1"
                     android:drawableLeft="@drawable/cupboard"
                     android:gravity="bottom|right"
-                    android:text="Cupboards" />
+                    android:text="Cupboards"
+                    android:width="0dp"/>
 
             </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
-</ScrollView>

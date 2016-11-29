@@ -1,11 +1,11 @@
-package com.neosoft.neostore;
+package com.neosoft.neostore.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
-class HomepageAdapter extends FragmentPagerAdapter {
+public class HomepageAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
     public HomepageAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
