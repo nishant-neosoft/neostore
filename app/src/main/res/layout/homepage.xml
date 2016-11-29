@@ -47,8 +47,7 @@
                     android:drawableLeft="@drawable/table"
                     android:gravity="top|right"
                     android:text="Tables"
-                    android:width="0dp"
-                    />
+                    android:width="0dp" />
 
                 <Button
                     android:id="@+id/sofas"
@@ -85,8 +84,6 @@
                     android:gravity="bottom|right"
                     android:text="Cupboards"
                     android:width="0dp"/>
-
             </LinearLayout>
         </LinearLayout>
-
     </RelativeLayout>
