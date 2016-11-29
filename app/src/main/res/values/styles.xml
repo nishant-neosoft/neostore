@@ -11,6 +11,7 @@
         <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
     </style>
     <style name="AppTheme.Drawer">
+        <item name="colorPrimaryDark">#000000</item>
         <item name="android:background">@color/colornightrider</item>
     </style>
     <style name="NeoSOFT">
