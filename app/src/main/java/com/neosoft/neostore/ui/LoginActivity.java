@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.model.login.LoginResponseModel;
@@ -26,11 +27,15 @@ public class LoginActivity extends Activity {
             }
         });
         Button login = (Button) findViewById(R.id.btn_login);
+        final EditText editPassword = (EditText) findViewById(R.id.edtPass);
+
+        final EditText editEmail = (EditText) findViewById(R.id.edtEmail);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GetServices apiServices = new GetServices();
-                apiServices.login("av@example.com", "abhijeet", new ApiResponse<LoginResponseModel>() {
+                apiServices.login(editEmail.getText().toString(),editPassword.getText().toString(), new ApiResponse<LoginResponseModel>() {
                     @Override
                     public void onSuccess(LoginResponseModel response) {
                         Log.e("zzz", response.toString());
