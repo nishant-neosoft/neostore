@@ -1,14 +1,14 @@
-package com.neosoft.neostore.ServiceAPI;
+package com.neosoft.neostore.serviceapi;
 
 import android.util.Log;
 
-import com.neosoft.neostore.Activity.LoginActivity;
+import com.neosoft.neostore.activity.LoginActivity;
 
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
-import static com.neosoft.neostore.ServiceAPI.UserAPI.LOGIN_URL;
-import static com.neosoft.neostore.ServiceAPI.UserAPI.REGISTER_URL;
+import static com.neosoft.neostore.serviceapi.UserAPI.LOGIN_URL;
+import static com.neosoft.neostore.serviceapi.UserAPI.REGISTER_URL;
 
 public class GetServices implements Services.ApiResponse{
 

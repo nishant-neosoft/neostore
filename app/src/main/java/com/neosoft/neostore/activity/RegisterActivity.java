@@ -1,4 +1,4 @@
-package com.neosoft.neostore.Activity;
+package com.neosoft.neostore.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.neosoft.neostore.R;
-import com.neosoft.neostore.ServiceAPI.GetServices;
-import com.neosoft.neostore.ServiceAPI.Services;
-import com.neosoft.neostore.Validate.Validate;
+import com.neosoft.neostore.serviceapi.GetServices;
+import com.neosoft.neostore.serviceapi.Services;
+import com.neosoft.neostore.validate.Validate;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,Services.ApiResponse{
 

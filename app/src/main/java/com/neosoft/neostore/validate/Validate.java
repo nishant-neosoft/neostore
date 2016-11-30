@@ -1,4 +1,4 @@
-package com.neosoft.neostore.Validate;
+package com.neosoft.neostore.validate;
 
 import android.view.View;
 import android.widget.EditText;
@@ -52,10 +52,8 @@ public class Validate {
             editPass.setError(null);
             isValid = true;
         }
-
         return isValid;
     }
-
 
     public boolean registerValidate(EditText editFname, EditText editLname, EditText editEmail, EditText editPass, EditText editCPass, RadioGroup radioGenderGrp, TextView txtGenErr, EditText editphoneNo)
     {
@@ -115,11 +113,11 @@ public class Validate {
 
         if (radioGenderGrp.getCheckedRadioButtonId() == -1)
         {
-            txtGenErr.setError(ERROR_EMPTY_GENDER_VALUE); return isValid=false;
+            txtGenErr.setText(ERROR_EMPTY_GENDER_VALUE); return isValid=false;
         }
         else
         {
-            txtGenErr.setError(null);
+            txtGenErr.setText(null);
             txtGenErr.setVisibility(View.INVISIBLE);
             isValid=true;
         }

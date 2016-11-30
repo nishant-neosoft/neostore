@@ -1,9 +1,8 @@
-package com.neosoft.neostore.ServiceAPI;
+package com.neosoft.neostore.serviceapi;
 
 import android.os.AsyncTask;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
