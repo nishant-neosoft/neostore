@@ -15,17 +15,17 @@
         <TextView style="@style/NeoSOFT" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edtEmail"
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_username"
-            android:hint="Name"
-            android:inputType="textPersonName" />
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtPass"
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_password"
-            android:hint="password"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="@color/colorWhite" />
 
@@ -34,6 +34,7 @@
             style="@style/SubmitButtoninWhite"
             android:background="@drawable/submit_white_style"
             android:text="@string/login" />
+
     </LinearLayout>
 
     <RelativeLayout
