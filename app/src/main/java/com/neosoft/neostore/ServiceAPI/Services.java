@@ -1,9 +1,9 @@
 package com.neosoft.neostore.ServiceAPI;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,7 +18,7 @@ private final String TAG=Services.class.getSimpleName();
     String res, modelClass;
     RequestBody requestBody;
     ApiResponse apiResponse;
-    public Services(String url,RequestBody requestBody, ApiResponse apiResponse){
+    public Services(String url, RequestBody requestBody, ApiResponse apiResponse){
         this.url = url;
         this.requestBody = requestBody;
         this.apiResponse = apiResponse;
@@ -32,7 +32,6 @@ private final String TAG=Services.class.getSimpleName();
                     .url(url)
                     .post(requestBodies[0])
                     .build();
-            Log.d("Response --->  ","Call after execution");
             Response response = client.newCall(request).execute();
             res = response.body().string();
         } catch (IOException e) {

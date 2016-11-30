@@ -10,34 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.neosoft.neostore.R;
+import com.neosoft.neostore.ServiceAPI.GetServices;
 import com.neosoft.neostore.ServiceAPI.Services;
-
-import java.util.regex.Pattern;
-
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-
-import static com.neosoft.neostore.ServiceAPI.UserAPI.REGISTER_URL;
-
-/**
- * Created by webwerks on 28/11/16.
- */
+import com.neosoft.neostore.Validate.Validate;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,Services.ApiResponse{
-    public static String ERROR_EMPTY_VALUE    = "Please enter value";
-    public static String ERROR_INVALID_EMAIL    = "Please enter valid Email!";
-    public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
-    public static String ERROR_CONFIRM_PASSWORD = "Please enter correct password";
-    public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+");
 
     Button register;
     Toolbar toolbar;
@@ -45,6 +25,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     String fname, lname, email, pass, cpass, phone, gender;
     RadioGroup rdGrpGender;
     RadioButton rdbtnGender;
+    TextView txtGengerErr;
+    Validate valid = new Validate();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +42,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register = (Button) findViewById(R.id.btnRegister);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         rdGrpGender = (RadioGroup) findViewById(R.id.radioGender);
+        txtGengerErr = (TextView) findViewById(R.id.txtGenderValidate);
+        txtGengerErr.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -77,7 +61,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnRegister :
-                if(validate()) {
+
+                if(valid.registerValidate(editFname,editLname,editEmail,editPass,editConfirmPass,rdGrpGender,txtGengerErr,editPhone)) {
                     int genderId = rdGrpGender.getCheckedRadioButtonId();
                     rdbtnGender = (RadioButton) findViewById(genderId);
                     fname = String.valueOf(editFname.getText());
@@ -91,67 +76,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     else
                         gender = "F";
 
-                    RequestBody requestBody = new FormBody.Builder()
-                            .add("first_name", fname)
-                            .add("last_name", lname)
-                            .add("email", email)
-                            .add("password", pass)
-                            .add("confirm_password", cpass)
-                            .add("gender", gender)
-                            .add("phone_no", phone)
-                            .build();
-
-                    Services ser = new Services(REGISTER_URL, requestBody,this);
-                    ser.execute(requestBody);
-                    Log.d("Response ---->>> ", "Service called");
+                    GetServices services = new GetServices();
+                    services.register(fname,lname,email,pass,cpass,gender,phone);
                 }
                 break;
         }
-    }
-
-    boolean validate()
-    {
-        boolean isValid= false;
-
-        if( isEmpty( editFname ) )
-        {editFname.setError(ERROR_EMPTY_VALUE); return isValid = false;}
-        else
-        {  editFname.setError( null); isValid = true; }
-
-        if( isEmpty( editLname ))
-        { editLname.setError( ERROR_EMPTY_VALUE ); return isValid = false;}
-        else
-        {editLname.setError(null); isValid= true;}
-
-        if (isEmpty(editEmail))
-        {editEmail.setError( ERROR_EMPTY_VALUE ); return isValid = false;}
-        if ( ! EMAIL_ADDRESS_PATTERN.matcher(editEmail.getText().toString()).matches())
-        {editEmail.setError( ERROR_INVALID_EMAIL ); return isValid = false;}
-        else
-        {editEmail.setError( null ); isValid = true;}
-
-        if (isEmpty(editPass))
-        {editPass.setError( ERROR_EMPTY_PASSWORD ); return isValid = false;}
-        else
-        {editPass.setError( null ); isValid = true;}
-
-        if ( isEmpty(editConfirmPass))
-        {editConfirmPass.setError( ERROR_EMPTY_PASSWORD ); return isValid = false;}
-        if (! editConfirmPass.getText().toString().equals(editPass.getText().toString()))
-        { editConfirmPass.setError(ERROR_CONFIRM_PASSWORD); return isValid = false;}
-        else
-        {editConfirmPass.setError( null ); isValid = true;}
-
-        if ( isEmpty( editPhone ) )
-        {editPhone.setError( ERROR_EMPTY_VALUE ); return isValid = false;}
-        else
-        {editPhone.setError( null ); isValid = true;}
-
-        return isValid;
-    }
-
-    public boolean isEmpty( EditText editText ) {
-        return editText.getText().toString().trim().isEmpty();
     }
 
     @Override

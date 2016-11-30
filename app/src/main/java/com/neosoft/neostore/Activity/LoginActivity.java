@@ -8,33 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.neosoft.neostore.R;
+import com.neosoft.neostore.ServiceAPI.GetServices;
 import com.neosoft.neostore.ServiceAPI.Services;
+import com.neosoft.neostore.Validate.Validate;
 
-import java.util.regex.Pattern;
-
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-
-import static com.neosoft.neostore.ServiceAPI.UserAPI.LOGIN_URL;
-
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener ,Services.ApiResponse{
-
-    public static String ERROR_EMPTY_EMAIL    = "Please enter Email!";
-    public static String ERROR_INVALID_EMAIL    = "Please enter valid Email!";
-    public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
-    public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+");
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, Services.ApiResponse {
 
     Button btnLogin, btnRegister;
     EditText editEmail, editPass;
     String email, pass;
+    Validate valid = new Validate();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,63 +39,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLogin:
-                if (validate()) {
+                if (valid.loginValidate(editEmail,editPass)) {
                     email = String.valueOf(editEmail.getText());
                     pass = String.valueOf(editPass.getText());
 
-                    RequestBody requestBody = new FormBody.Builder()
-                            .add("email", email)
-                            .add("password", pass)
-                            .build();
-
-                    Services ser = new Services(LOGIN_URL, requestBody,this);
-                    ser.execute(requestBody);
-                    Log.d("Response ---->>> ", "Service called");
+                    GetServices getServices = new GetServices();
+                    getServices.login(email,pass);
                 }
-            break;
+                break;
 
             case R.id.btnRegister:
-                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
         }
     }
 
-    boolean validate()
-    {
-        boolean isValid;
-        if ( isEmpty( editEmail ) ) {
-            editEmail.setError( ERROR_EMPTY_EMAIL );
-            return isValid = false;
-        }
-        if ( ! EMAIL_ADDRESS_PATTERN.matcher(editEmail.getText().toString()).matches())
-        {
-            editEmail.setError( ERROR_INVALID_EMAIL );
-            return isValid = false;
-        }
-        else {
-            editEmail.setError( null );
-            isValid = true;
-        }
-
-        if ( isEmpty( editPass ) ) {
-            editPass.setError( ERROR_EMPTY_PASSWORD );
-            return isValid = false;
-        }
-        else {
-            editPass.setError( null );
-            isValid = true;
-        }
-
-        return isValid;
-    }
-
-    public boolean isEmpty( EditText editText ) {
-        return editText.getText().toString().trim().isEmpty();
-    }
-
     @Override
     public void onSuccess(String response) {
-        Log.e(LoginActivity.class.getSimpleName(),"onSuccess response "+response);
+        Log.e(LoginActivity.class.getSimpleName(), "onSuccess response " + response);
 
+        new Gson().toJson(response);
     }
 }

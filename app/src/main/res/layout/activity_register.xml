@@ -116,6 +116,15 @@
                     android:textStyle="bold" />
             </RadioGroup>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:id="@+id/txtGenderValidate"/>
 
         <EditText
             android:id="@+id/etPhone"
