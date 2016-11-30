@@ -1,5 +1,5 @@
 
-package com.neosoft.neostore.login;
+package com.neosoft.neostore.model.login;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -75,4 +75,12 @@ public class LoginResponseModel {
         this.userMsg = userMsg;
     }
 
+    @Override public String toString() {
+        return "LoginResponseModel{" +
+            "status=" + status +
+            ", data=" + data +
+            ", message='" + message + '\'' +
+            ", userMsg='" + userMsg + '\'' +
+            '}';
+    }
 }
