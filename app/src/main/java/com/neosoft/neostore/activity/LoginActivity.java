@@ -28,8 +28,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         editEmail = (EditText) findViewById(R.id.edtEmail);
         editPass = (EditText) findViewById(R.id.edtPass);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnLogin = (Button) findViewById(R.id.btn_login);
+        btnRegister = (Button) findViewById(R.id.btn_login_signup);
 
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnLogin:
+            case R.id.btn_login:
                 if (valid.loginValidate(editEmail,editPass)) {
                     email = String.valueOf(editEmail.getText());
                     pass = String.valueOf(editPass.getText());
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 break;
 
-            case R.id.btnRegister:
+            case R.id.btn_login_signup:
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
         }
