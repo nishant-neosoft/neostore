@@ -1,7 +1,9 @@
 package com.neosoft.neostore.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,24 +17,24 @@ import com.neosoft.neostore.serviceapi.ApiResponse;
 import com.neosoft.neostore.serviceapi.GetServices;
 import com.neosoft.neostore.validate.Validate;
 
-public class LoginActivity extends Activity implements View.OnClickListener{
-    Button btnLogin, btnRegister;
-    EditText editEmail, editPass;
-    String email, pass;
-    Validate valid = new Validate();
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+public class LoginActivity extends Activity {
+    public static final String MyPREFERENCES = "MyPrefs";
+    public static final String STATUS = "status";
+    public static final String STATUS_IN = "in";
+    SharedPreferences sharedpreferences;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        editEmail = (EditText) findViewById(R.id.edtEmail);
-        editPass = (EditText) findViewById(R.id.edtPass);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        btnRegister = (Button) findViewById(R.id.btn_login_signup);
-
-        btnLogin.setOnClickListener(this);
-        btnRegister.setOnClickListener(this);
-
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        String status = sharedpreferences.getString(STATUS, null);
+        if (status != null) {
+            if (status.equals(STATUS_IN)) {
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                finish();
+            }
+        }
         setContentView(R.layout.activity_login);
         Button signup = (Button) findViewById(R.id.btn_login_signup);
         signup.setOnClickListener(new View.OnClickListener() {
@@ -51,11 +53,15 @@ public class LoginActivity extends Activity implements View.OnClickListener{
             @Override
             public void onClick(View v) {
                 GetServices apiServices = new GetServices();
-                apiServices.login(editEmail.getText().toString(),editPassword.getText().toString(), new ApiResponse<LoginResponseModel>() {
+                apiServices.login(editEmail.getText().toString(), editPassword.getText().toString(), new ApiResponse<LoginResponseModel>() {
                     @Override
                     public void onSuccess(LoginResponseModel response) {
                         Toast.makeText(getApplicationContext(),response.getMessage().toString(),Toast.LENGTH_LONG).show();
                         Log.e("zzz", response.toString());
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString(STATUS, STATUS_IN);
+                        editor.commit();
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     }
 
                     @Override
@@ -65,10 +71,5 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 });
             }
         });
-    }
-
-    @Override
-    public void onClick(View view) {
-
     }
 }
