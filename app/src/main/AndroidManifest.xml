@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisterActivity"
+        <activity android:name=".ui.RegisterScreen"
             android:label="RegisterActivity"
             android:theme="@style/AppTheme"/>
 
