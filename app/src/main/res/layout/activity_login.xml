@@ -4,19 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
         android:gravity="center"
         android:orientation="vertical">
-        <TextView style="@style/NeoSOFT"/>
+
+        <TextView style="@style/NeoSOFT" />
+
         <EditText
             android:id="@+id/edtEmail"
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_username"
             android:hint="Email"
             android:inputType="textEmailAddress" />
+
         <EditText
             android:id="@+id/edtPass"
             style="@style/EditTextWithImage"
@@ -24,6 +28,7 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="@color/colorWhite" />
+
         <Button
             android:id="@+id/btn_login"
             style="@style/SubmitButtoninWhite"
@@ -31,35 +36,35 @@
             android:text="@string/login" />
 
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="DONT HAVE AN ACCOUNT?"
-            android:textSize="18sp"
+            android:layout_gravity="center|start"
             android:layout_marginLeft="@dimen/tv_side_pad"
             android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_gravity="center|start"
+            android:text="DONT HAVE AN ACCOUNT?"
             android:textColor="@color/colorWhite"
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <Button
+            android:id="@+id/btn_login_signup"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:textSize="40sp"
-            android:id="@+id/btn_login_signup"
-            android:background="@drawable/add_style"
-            android:textColor="@color/colorWhite"
-            android:layout_marginRight="@dimen/tv_side_pad"
-            android:layout_marginBottom="5dp"
-            android:text="+"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            />
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="@dimen/tv_side_pad"
+            android:background="@drawable/add_style"
+            android:text="+"
+            android:textColor="@color/colorWhite"
+            android:textSize="40sp" />
     </RelativeLayout>
 </LinearLayout>
