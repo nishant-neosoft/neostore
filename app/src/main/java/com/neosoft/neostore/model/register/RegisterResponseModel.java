@@ -1,5 +1,5 @@
 
-package com.neosoft.neostore.register;
+package com.neosoft.neostore.model.register;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
