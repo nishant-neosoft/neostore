@@ -1,14 +1,19 @@
 package com.neosoft.neostore.serviceapi;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
 import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class Services<U> extends AsyncTask<Void, Void, String> {
 
@@ -31,7 +36,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 			OkHttpClient client = new OkHttpClient();
 			Request request = new Request.Builder().url(url).post(requestBody).build();
 			Response response = client.newCall(request).execute();
-			responseString = response.body().string();
+			responseString = response.body().string().toString();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,11 +47,12 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 		super.onPostExecute(response);
 		int status = 0;
 		try {
-			status = new JSONObject(response).getInt("status");
+			status = (new JSONObject(response)).getInt("status");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		if (status != 200) {
+			Log.e("zzzz",status+"");
 			apiResponse.onError("Error");
 		} else {
 			Gson gson = new Gson();

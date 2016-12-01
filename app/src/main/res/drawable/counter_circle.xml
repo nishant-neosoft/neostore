@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/colorFreeSpeechRed"/>
+    <size android:height="@dimen/cart_counter_radius" android:width="@dimen/cart_counter_radius"/>
+</shape>

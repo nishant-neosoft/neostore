@@ -8,6 +8,7 @@ import java.util.List;
 
 public class HomepageAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
+
     public HomepageAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
