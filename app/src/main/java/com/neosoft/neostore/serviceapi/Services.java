@@ -1,6 +1,7 @@
 package com.neosoft.neostore.serviceapi;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -51,6 +52,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 			e.printStackTrace();
 		}
 		if (status != 200) {
+			Log.e("zzzz",status+"");
 			apiResponse.onError("Error");
 		} else {
 			Gson gson = new Gson();

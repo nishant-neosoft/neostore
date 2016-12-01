@@ -1,5 +1,7 @@
 package com.neosoft.neostore.serviceapi;
 
+import android.util.Log;
+
 import com.neosoft.neostore.model.login.LoginResponseModel;
 import com.neosoft.neostore.model.register.RegisterResponseModel;
 
