@@ -13,18 +13,18 @@ import static com.neosoft.neostore.serviceapi.UserAPI.REGISTER_URL;
 
 public class GetServices{
 
-    public void login(String email, String pass, ApiResponse responseListener)
+    public void login(String email, String pass, ApiResponse responseListener, ApiFailure failureListener)
     {
         RequestBody requestBody = new FormBody.Builder()
                 .add("email",email)
                 .add("password",pass)
                 .build();
 
-        Services<LoginResponseModel> loginResponseModelServices = new Services<>(LOGIN_URL, requestBody, responseListener,LoginResponseModel.class);
+        Services<LoginResponseModel> loginResponseModelServices = new Services<>(LOGIN_URL, requestBody, responseListener, failureListener, LoginResponseModel.class);
         loginResponseModelServices.execute();
     }
 
-    public void register(String fname, String lname, String email, String pass, String cpass, String gender, String ph_no, ApiResponse responseListener)
+    public void register(String fname, String lname, String email, String pass, String cpass, String gender, String ph_no, ApiResponse responseListener, ApiFailure failureListener)
     {
         RequestBody requestBody = new FormBody.Builder()
                 .add("first_name",fname)
@@ -35,7 +35,7 @@ public class GetServices{
                 .add("gender",gender)
                 .add("phone_no",ph_no)
                 .build();
-        Services<RegisterResponseModel> ser = new Services<>(REGISTER_URL, requestBody, responseListener, RegisterResponseModel.class);
+        Services<RegisterResponseModel> ser = new Services<>(REGISTER_URL, requestBody, responseListener, failureListener, RegisterResponseModel.class);
         ser.execute();
     }
 

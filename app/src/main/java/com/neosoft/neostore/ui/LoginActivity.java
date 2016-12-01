@@ -13,9 +13,10 @@ import android.widget.Toast;
 
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.model.login.LoginResponseModel;
+import com.neosoft.neostore.serviceapi.ApiFailure;
 import com.neosoft.neostore.serviceapi.ApiResponse;
+import com.neosoft.neostore.serviceapi.ErrorHandler;
 import com.neosoft.neostore.serviceapi.GetServices;
-import com.neosoft.neostore.validate.Validate;
 
 
 public class LoginActivity extends Activity {
@@ -52,23 +53,19 @@ public class LoginActivity extends Activity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetServices apiServices = new GetServices();
-                apiServices.login(editEmail.getText().toString(), editPassword.getText().toString(), new ApiResponse<LoginResponseModel>() {
-                    @Override
-                    public void onSuccess(LoginResponseModel response) {
-                        Toast.makeText(getApplicationContext(),response.getMessage().toString(),Toast.LENGTH_LONG).show();
-                        Log.e("zzz", response.toString());
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString(STATUS, STATUS_IN);
-                        editor.commit();
-                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                    }
 
-                    @Override
-                    public void onError(String message) {
-                        Log.e("zzz", message);
-                    }
-                });
+                    GetServices apiServices = new GetServices();
+                    apiServices.login(editEmail.getText().toString(), editPassword.getText().toString(), new ApiResponse<LoginResponseModel>() {
+                        @Override
+                        public void onSuccess(LoginResponseModel response) {
+                            Toast.makeText(getApplicationContext(), response.getMessage().toString(), Toast.LENGTH_LONG).show();
+                            Log.e("zzz", response.toString());
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(STATUS, STATUS_IN);
+                            editor.commit();
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        }
+                    }, new ErrorHandler());
             }
         });
     }

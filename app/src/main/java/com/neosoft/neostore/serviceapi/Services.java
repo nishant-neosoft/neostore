@@ -21,12 +21,14 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 	private RequestBody requestBody;
 	private ApiResponse<U> apiResponse;
 	private Class<U> responseType;
+	private ApiFailure apiError;
 
-	public Services(String url, RequestBody requestBody, ApiResponse apiResponse,
+	public Services(String url, RequestBody requestBody, ApiResponse apiResponse, ApiFailure apiFailure,
 			Class<U> responseType) {
 		this.url = url;
 		this.requestBody = requestBody;
 		this.apiResponse = apiResponse;
+		this.apiError = apiFailure;
 		this.responseType = responseType;
 	}
 
@@ -53,7 +55,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 		}
 		if (status != 200) {
 			Log.e("zzzz",status+"");
-			apiResponse.onError("Error");
+			apiError.onError(String.valueOf(status));
 		} else {
 			Gson gson = new Gson();
 			apiResponse.onSuccess(gson.fromJson(response, responseType));

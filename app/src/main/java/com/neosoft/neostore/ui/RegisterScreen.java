@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.model.register.RegisterResponseModel;
+import com.neosoft.neostore.serviceapi.ApiFailure;
 import com.neosoft.neostore.serviceapi.ApiResponse;
+import com.neosoft.neostore.serviceapi.ErrorHandler;
 import com.neosoft.neostore.serviceapi.GetServices;
 
 public class RegisterScreen extends AppCompatActivity {
@@ -47,12 +49,16 @@ public class RegisterScreen extends AppCompatActivity {
                             new ApiResponse<RegisterResponseModel>() {
                                 @Override
                                 public void onSuccess(RegisterResponseModel response) {
-                                    Toast.makeText(getApplicationContext(),response.getMessage().toString(),Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), response.getMessage().toString(), Toast.LENGTH_LONG).show();
                                     Log.e("zzz", response.getMessage().toString());
                                 }
+
+                            }, new ApiFailure() {
                                 @Override
-                                public void onError(String message) {
-                                    Log.e("zzz", message);
+                                public String onError(String msg) {
+                                    ErrorHandler handler = new ErrorHandler();
+                                    handler.onError(msg);
+                                    return msg;
                                 }
                             });
                 }
