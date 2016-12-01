@@ -1,7 +1,7 @@
-package com.neosoft.neostore.fragment;
+package com.neosoft.neostore.ui;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +9,13 @@ import android.widget.ImageView;
 
 import com.neosoft.neostore.R;
 
-public class HomepageFragment extends Fragment {
+public class ImagePagerFragment extends Fragment {
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     private View v;
     private boolean imageloaded;
 
-    public static final HomepageFragment newInstance(int message) {
-        HomepageFragment f = new HomepageFragment();
+    public static final ImagePagerFragment newInstance(int message) {
+        ImagePagerFragment f = new ImagePagerFragment();
         Bundle bdl = new Bundle();
         bdl.putString(EXTRA_MESSAGE, String.valueOf(message));
         f.setArguments(bdl);
