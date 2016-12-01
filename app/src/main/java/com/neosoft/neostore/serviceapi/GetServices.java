@@ -1,6 +1,8 @@
 package com.neosoft.neostore.serviceapi;
 
 import com.neosoft.neostore.model.login.LoginResponseModel;
+import com.neosoft.neostore.model.register.RegisterResponseModel;
+
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
@@ -31,8 +33,8 @@ public class GetServices{
                 .add("gender",gender)
                 .add("phone_no",ph_no)
                 .build();
-        Services ser = new Services(REGISTER_URL, requestBody, responseListener, null);
-        ser.execute(requestBody);
+        Services<RegisterResponseModel> ser = new Services<>(REGISTER_URL, requestBody, responseListener, RegisterResponseModel.class);
+        ser.execute();
     }
 
 }

@@ -131,6 +131,7 @@
             style="@style/EditTextWithImage"
             android:drawableLeft="@drawable/ic_action_phone"
             android:hint="Phone Number"
+            android:maxLength="10"
             android:inputType="phone" />
 
         <CheckBox

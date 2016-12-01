@@ -5,20 +5,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import com.neosoft.neostore.R;
+import com.neosoft.neostore.model.register.RegisterResponseModel;
 import com.neosoft.neostore.serviceapi.ApiResponse;
 import com.neosoft.neostore.serviceapi.GetServices;
 
 public class RegisterScreen extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Button register = (Button) findViewById(R.id.register_btn);
+        final Button register = (Button) findViewById(R.id.btnRegister);
 
         final EditText editFname = (EditText) findViewById(R.id.etFirstname);
         final EditText editLname = (EditText) findViewById(R.id.etLastname);
@@ -26,15 +28,32 @@ public class RegisterScreen extends AppCompatActivity {
         final EditText editconfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
         final EditText editEmail = (EditText) findViewById(R.id.etEmail);
         final EditText editPhone = (EditText) findViewById(R.id.etPhone);
-        final CheckBox checkbox = (CheckBox) findViewById(R.id.checkBox);
-        final Button btnRegister = (Button) findViewById(R.id.register_btn);
-        final RadioGroup radio= (RadioGroup) findViewById(R.id.radioGender);
+        final RadioGroup radio = (RadioGroup) findViewById(R.id.radioGender);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GetServices apiServices = new GetServices();
-                apiServices.register(editFname.getText().toString(),editLname.getText().toString(),editEmail.getText().toString(),editPassword.getText().toString(),editconfirmPassword.getText().toString(),radio.getR);
+                int selectedRadioButtonID = radio.getCheckedRadioButtonId();
+                if (selectedRadioButtonID != -1) {
+                    String gender = ((RadioButton) findViewById(selectedRadioButtonID)).getText().toString();
+                    gender = gender.substring(0, 1);
+                    GetServices apiServices = new GetServices();
+                    apiServices.register(editFname.getText().toString().trim(),
+                            editLname.getText().toString().trim(),
+                            editEmail.getText().toString().trim(),
+                            editPassword.getText().toString().trim(),
+                            editconfirmPassword.getText().toString(),
+                            gender,
+                            editPhone.getText().toString(),
+                            new ApiResponse<RegisterResponseModel>() {
+                                @Override
+                                public void onSuccess(RegisterResponseModel response) {
+                                }
+                                @Override
+                                public void onError(String message) {
+                                }
+                            });
+                }
                 finish();
             }
         });
