@@ -13,6 +13,7 @@ public class HomepageFragment extends Fragment {
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
     private View v;
     private boolean imageloaded;
+
     public static final HomepageFragment newInstance(int message) {
         HomepageFragment f = new HomepageFragment();
         Bundle bdl = new Bundle();
@@ -20,6 +21,7 @@ public class HomepageFragment extends Fragment {
         f.setArguments(bdl);
         return f;
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         String message = getArguments().getString(EXTRA_MESSAGE);

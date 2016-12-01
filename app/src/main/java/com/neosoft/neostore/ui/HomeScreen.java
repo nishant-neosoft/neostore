@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.adapter.HomepageAdapter;
+import com.neosoft.neostore.fragment.HomepageFragment;
 
 import java.util.ArrayList;
 import java.util.List;

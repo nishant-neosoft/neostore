@@ -91,4 +91,13 @@ public class RegisterResponseModel {
         this.userMsg = userMsg;
     }
 
+    @Override public String toString() {
+        return "LoginResponseModel{" +
+                "status=" + status +
+                ", data=" + data +
+                ", message='" + message + '\'' +
+                ", userMsg='" + userMsg + '\'' +
+                '}';
+    }
+
 }
