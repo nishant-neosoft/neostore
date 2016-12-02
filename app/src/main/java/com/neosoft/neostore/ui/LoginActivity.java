@@ -1,9 +1,7 @@
 package com.neosoft.neostore.ui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,23 +12,17 @@ import com.neosoft.neostore.R;
 import com.neosoft.neostore.model.login.LoginResponseModel;
 import com.neosoft.neostore.serviceapi.ApiResponse;
 import com.neosoft.neostore.serviceapi.GetServices;
+import com.neosoft.neostore.util.Util;
 
 public class LoginActivity extends Activity {
-    public static final String MyPREFERENCES = "MyPrefs";
-    public static final String STATUS = "status";
-    public static final String STATUS_IN = "in";
-    SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        String status = sharedpreferences.getString(STATUS, null);
-        if (status != null) {
-            if (status.equals(STATUS_IN)) {
+        if(Util.isLoggedIn(this)){
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 finish();
-            }
         }
         setContentView(R.layout.activity_login);
         Button signup = (Button) findViewById(R.id.btn_login_signup);
@@ -54,9 +46,7 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onSuccess(LoginResponseModel response) {
                         Log.e("zzz", response.toString());
-                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                        editor.putString(STATUS, STATUS_IN);
-                        editor.commit();
+                        Util.login();
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     }
 

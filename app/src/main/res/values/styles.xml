@@ -16,6 +16,10 @@
         <item name="android:background">@color/colornightrider</item>
     </style>
 
+    <style name="AppTheme.WhiteBackground">
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
     <style name="NeoSOFT">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
