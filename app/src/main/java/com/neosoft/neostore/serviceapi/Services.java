@@ -21,6 +21,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 	private RequestBody requestBody;
 	private ApiResponse<U> apiResponse;
 	private Class<U> responseType;
+	private Request request;
 
 	public Services(String url, RequestBody requestBody, ApiResponse apiResponse,
 			Class<U> responseType) {
@@ -28,13 +29,20 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 		this.requestBody = requestBody;
 		this.apiResponse = apiResponse;
 		this.responseType = responseType;
+		request = new Request.Builder().url(url).post(requestBody).build();
+	}
+
+	public Services(String url, ApiResponse<U> apiResponse, Class<U> responseType) {
+		this.url = url;
+		this.apiResponse = apiResponse;
+		this.responseType = responseType;
+		request = new Request.Builder().url(url).get().build();
 	}
 
 	@Override protected String doInBackground(Void... requestBodies) {
 		String responseString = null;
 		try {
 			OkHttpClient client = new OkHttpClient();
-			Request request = new Request.Builder().url(url).post(requestBody).build();
 			Response response = client.newCall(request).execute();
 			responseString = response.body().string().toString();
 		} catch (IOException e) {
@@ -45,6 +53,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 
 	@Override protected void onPostExecute(String response) {
 		super.onPostExecute(response);
+		Log.e("zzzzzzz",response);
 		int status = 0;
 		try {
 			status = (new JSONObject(response)).getInt("status");
@@ -56,6 +65,9 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 			apiResponse.onError("Error");
 		} else {
 			Gson gson = new Gson();
+
+			Log.e("zzzz",response+"");
+
 			apiResponse.onSuccess(gson.fromJson(response, responseType));
 		}
 	}

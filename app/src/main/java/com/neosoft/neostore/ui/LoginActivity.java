@@ -25,6 +25,18 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        GetServices apiServices = new GetServices();
+        apiServices.getProductlist("1", new ApiResponse() {
+            @Override
+            public void onSuccess(Object response) {
+
+            }
+
+            @Override
+            public void onError(String message) {
+
+            }
+        });
         String status = sharedpreferences.getString(STATUS, null);
         if (status != null) {
             if (status.equals(STATUS_IN)) {

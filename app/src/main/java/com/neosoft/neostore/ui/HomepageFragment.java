@@ -17,9 +17,7 @@ import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-/**
- * Created by webwerks1 on 1/12/16.
- */
+
 
 public class HomepageFragment extends Fragment {
 

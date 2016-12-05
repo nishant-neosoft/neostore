@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout"
+    android:paddingTop="20dp"
+    android:background="@color/colorWhite"
+    android:paddingBottom="20dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imgTables"
+        android:padding="10dp"
+        android:background="@drawable/furniture1"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTableName"
+        android:background="@color/colorWhite"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imgTables"
+        android:layout_toRightOf="@+id/imgTables"
+        android:text="Stylish Modern Dinning Tables"
+        android:textSize="16sp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTableStoreName"
+        android:layout_below="@+id/textTableName"
+        android:background="@color/colorWhite"
+        android:layout_toEndOf="@+id/imgTables"
+        android:layout_toRightOf="@+id/imgTables"
+        android:text="Aron Table Center"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTableRs"
+        android:layout_toEndOf="@+id/imgTables"
+        android:background="@color/colorWhite"
+        android:layout_toRightOf="@+id/imgTables"
+        android:layout_below="@+id/textTableStoreName"
+        android:text="Rs."
+        android:textColor="#FE4040"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTablePrice"
+        android:textColor="#FE4040"
+        android:background="@color/colorWhite"
+        android:text="27,390"
+        android:layout_toEndOf="@+id/textTableRs"
+        android:layout_toRightOf="@+id/textTableRs"
+        android:layout_below="@+id/textTableStoreName"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableRatingBar"
+        android:numStars="5"
+        android:rating="3"
+        android:isIndicator="true"
+        android:progressTint="@color/colorGold"
+        style = "?android:attr/ratingBarStyleSmall"
+        android:layout_marginRight="15dp"
+        android:layout_alignTop="@+id/textTablePrice"
+        android:layout_alignEnd="@+id/textTableStoreName"
+        android:layout_alignRight="@+id/textTableStoreName"
+        android:background="@android:color/background_light" />
+</RelativeLayout>

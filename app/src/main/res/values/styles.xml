@@ -15,7 +15,9 @@
     <style name="AppTheme.Drawer">
         <item name="android:background">@color/colornightrider</item>
     </style>
-
+    <style name="AppTheme.List">
+        <item name="android:background">@color/colorWhite</item>
+    </style>
     <style name="NeoSOFT">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
