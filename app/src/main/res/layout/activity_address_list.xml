@@ -7,8 +7,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
         android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:text="Shipping Address"
         android:textColor="@color/colorgray20"
@@ -19,5 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:choiceMode="singleChoice"
+        android:divider="@color/colorWhite"
+        android:dividerHeight="10dp"
         android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btn_place_order"
+        style="@style/SubmitButtoninWhite.Red"
+        android:background="@drawable/submit_red_style"
+        android:text="PLACE ORDER" />
 </LinearLayout>

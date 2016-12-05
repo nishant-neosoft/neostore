@@ -17,8 +17,9 @@ import java.util.ArrayList;
 public class AddressAdapter extends BaseAdapter {
 
 
-    private final ArrayList<AddressDetails> addressdetails;
     LayoutInflater layoutInflater;
+    RadioButton selected = null;
+    private ArrayList<AddressDetails> addressdetails;
 
     public AddressAdapter(Context context, ArrayList<AddressDetails> addressdetails) {
         this.addressdetails = addressdetails;
@@ -41,29 +42,34 @@ public class AddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View row = layoutInflater.inflate(R.layout.address_listview_item,parent,false);
-        RadioButton addressSelected = (RadioButton) row.findViewById(R.id.rb_address_selected);
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        View row = layoutInflater.inflate(R.layout.address_listview_item, parent, false);
+        final RadioButton addressSelected = (RadioButton) row.findViewById(R.id.rb_address_selected);
         TextView delete = (TextView) row.findViewById(R.id.delete_address);
         TextView name = (TextView) row.findViewById(R.id.tv_name);
         TextView address = (TextView) row.findViewById(R.id.tv_address);
         name.setText(addressdetails.get(position).getName());
         address.setText(addressdetails.get(position).getAddress());
-        addressSelected.setTag("Choice "+position);
         addressSelected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                clearChoice();
+                if (selected != null) {
+                    selected.setChecked(false);
+                }
+                addressSelected.setChecked(true);
+                selected = addressSelected;
             }
         });
-        delete.setTag("Delete "+ position);
+        delete.setTag(position);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //checkselection();
-                //deleterow()
+                if (selected==addressSelected) selected = null;
+                addressdetails.remove(position);
+                notifyDataSetChanged();
             }
         });
         return row;
     }
+
 }
