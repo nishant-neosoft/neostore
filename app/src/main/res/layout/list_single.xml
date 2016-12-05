@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/swipe_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<LinearLayout
+    android:id="@+id/bottom_wrapper"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/delete_prod" />
+    </RelativeLayout>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <ImageView
+    android:id="@+id/img"
+    android:layout_width="220px"
+    android:layout_height="200px"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/prod_name"
+        android:gravity="center"
+        android:background="@color/colorWhite"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:paddingTop="30px"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+    <TextView
+        android:id="@+id/prod_type"
+        android:text="(product)"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/prod_list_type"
+        android:paddingTop="@dimen/prod_list_type_top_margin"
+        android:paddingBottom="@dimen/prod_list_type_bottom_margin"
+        />
+    <Spinner
+        android:id="@+id/prod_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spinner_qty"/>
+
+</LinearLayout>
+</com.daimajia.swipe.SwipeLayout>

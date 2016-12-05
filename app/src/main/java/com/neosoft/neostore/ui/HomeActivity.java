@@ -1,5 +1,7 @@
 package com.neosoft.neostore.ui;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,10 +11,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.neosoft.neostore.R;
+
+import static com.neosoft.neostore.R.id.nav_mycart;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     TextView mycart;
@@ -33,17 +38,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         new HomepageFragment(),HomepageFragment.class.getSimpleName())
                         .commit();
                 break;
-            case 1:
-                break;
             default:
                 break;
         }
     }
+public boolean onTouchEvent(MotionEvent event){
 
+
+    return false;
+}
     private void initDrawer() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navlayout);
         navigationView.setNavigationItemSelectedListener(this);
-        badge_layout = (LinearLayout) MenuItemCompat.getActionView(navigationView.getMenu().findItem(R.id.nav_mycart));
+        badge_layout = (LinearLayout) MenuItemCompat.getActionView(navigationView.getMenu().findItem(nav_mycart));
         badge_layout.setGravity(Gravity.CENTER);
         mycart = new TextView(this);
         mycart.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -53,7 +60,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mycart.setGravity(Gravity.CENTER);
         mycart.setTextColor(getResources().getColor(R.color.colorWhite));
         badge_layout.addView(mycart);
-
     }
 
     @Override
@@ -70,6 +76,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        int selectedId = item.getItemId();
+        switch (selectedId) {
+            case R.id.nav_mycart:
+                Intent intent = new Intent(getApplicationContext(),HomepageFragment.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_tables:
+            Intent intent1 = new Intent(getApplicationContext(),MyCartFragment.class);
+            startActivity(intent1);
+                break;
+        }
         return true;
     }
 

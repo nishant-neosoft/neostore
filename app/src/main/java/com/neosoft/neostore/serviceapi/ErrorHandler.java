@@ -6,14 +6,20 @@ package com.neosoft.neostore.serviceapi;
 
 public class ErrorHandler implements ApiFailure {
 
+
     @Override
     public String onError(String msg) {
-        if(msg != "200")
+        if(msg.equals(200))
         {
+            msg += "success";
+            return msg;
+        }
+        if(msg.equals("401"))
+        {
+            msg = "failure";
             return msg;
         }
         else {
-            msg += "success";
             return msg;
         }
     }

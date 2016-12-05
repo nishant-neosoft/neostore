@@ -4,4 +4,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="cart_counter_radius">20dp</dimen>
+    <dimen name="prod_name">70dp</dimen>
+    <dimen name="prod_list_margin">30dp</dimen>
+    <dimen name="prod_list_type">45dp</dimen>
+    <dimen name="prod_list_type_top_margin">25dp</dimen>
+    <dimen name="prod_list_type_bottom_margin">15dp</dimen>
+    <dimen name="spinner_qty">45dp</dimen>
 </resources>

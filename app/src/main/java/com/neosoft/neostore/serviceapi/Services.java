@@ -54,7 +54,6 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 			e.printStackTrace();
 		}
 		if (status != 200) {
-			Log.e("zzzz",status+"");
 			apiError.onError(String.valueOf(status));
 		} else {
 			Gson gson = new Gson();

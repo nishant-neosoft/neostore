@@ -53,14 +53,7 @@ public class RegisterScreen extends AppCompatActivity {
                                     Log.e("zzz", response.getMessage().toString());
                                 }
 
-                            }, new ApiFailure() {
-                                @Override
-                                public String onError(String msg) {
-                                    ErrorHandler handler = new ErrorHandler();
-                                    handler.onError(msg);
-                                    return msg;
-                                }
-                            });
+                            }, new ErrorHandler());
                 }
                 finish();
             }
