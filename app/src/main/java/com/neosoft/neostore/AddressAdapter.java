@@ -15,10 +15,8 @@ import java.util.ArrayList;
  */
 
 public class AddressAdapter extends BaseAdapter {
-
-
-    LayoutInflater layoutInflater;
-    RadioButton selected = null;
+    private LayoutInflater layoutInflater;
+    private RadioButton selected = null;
     private ArrayList<AddressDetails> addressdetails;
 
     public AddressAdapter(Context context, ArrayList<AddressDetails> addressdetails) {
@@ -37,15 +35,13 @@ public class AddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public long getItemId(int position) { return position; }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View row = layoutInflater.inflate(R.layout.address_listview_item, parent, false);
         final RadioButton addressSelected = (RadioButton) row.findViewById(R.id.rb_address_selected);
-        TextView delete = (TextView) row.findViewById(R.id.delete_address);
+        TextView delete = (TextView) row.findViewById(R.id.btn_delete_address);
         TextView name = (TextView) row.findViewById(R.id.tv_name);
         TextView address = (TextView) row.findViewById(R.id.tv_address);
         name.setText(addressdetails.get(position).getName());

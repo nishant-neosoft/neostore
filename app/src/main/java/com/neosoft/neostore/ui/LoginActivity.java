@@ -46,7 +46,7 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onSuccess(LoginResponseModel response) {
                         Log.e("zzz", response.toString());
-                        Util.login();
+                        Util.saveLoginStatus();
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     }
 
