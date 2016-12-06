@@ -3,7 +3,7 @@ package com.neosoft.neostore.serviceapi;
 public class UserAPI {
 
     public static final String URL = "http://staging.php-dev.in:8844/trainingapp/api/";
-    public static final String LOGIN_URL = URL+"users/saveLoginStatus";
+    public static final String LOGIN_URL = URL+"users/login";
     public static final String REGISTER_URL = URL+"users/register";
     public static final String FORGOT_PASS_URL = URL+"users/forgot";
     public static final String CHANGE_PASS_URL = URL+"users/change";

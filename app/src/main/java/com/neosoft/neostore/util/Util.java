@@ -10,23 +10,16 @@ import android.content.SharedPreferences;
 public class Util {
     private static final String MyPREFERENCES = "MyPrefs";
     private static final String STATUS = "status";
-    private static final String STATUS_IN = "in";
     private static SharedPreferences sharedpreferences;
 
     public static boolean isLoggedIn(Context context) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        String status = sharedpreferences.getString(STATUS, null);
-        if (status != null) {
-            if (status.equals(STATUS_IN)) {
-                return true;
-            }
-        }
-        return false;
+            return (sharedpreferences.getBoolean(STATUS,false));
     }
 
     public static void saveLoginStatus() {
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString(STATUS, STATUS_IN);
+        editor.putBoolean(STATUS,true);
         editor.commit();
     }
 }
