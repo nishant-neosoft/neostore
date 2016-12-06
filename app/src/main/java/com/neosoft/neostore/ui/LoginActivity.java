@@ -20,9 +20,9 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(Util.isLoggedIn(this)){
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                finish();
+        if (Util.isLoggedIn(this)) {
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
         }
         setContentView(R.layout.activity_login);
         Button signup = (Button) findViewById(R.id.btn_login_signup);

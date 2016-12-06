@@ -6,7 +6,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorFreeSpeechRed">#BB0100</color>
     <color name="colorRuby">#9E0100</color>
-    <color name="colorgray31">#4F4F4F</color>
+    <color name="colorgray31">#4f4f4f</color>
     <color name="colornightrider">#2C2B2B</color>
     <color name="colorgray20">#333333</color>
+    <color name="colorGold">#FFD700</color>
 </resources>
