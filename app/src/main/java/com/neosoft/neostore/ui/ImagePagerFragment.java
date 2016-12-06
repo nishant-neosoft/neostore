@@ -17,18 +17,18 @@ public class ImagePagerFragment extends Fragment {
     public static final ImagePagerFragment newInstance(int message) {
         ImagePagerFragment f = new ImagePagerFragment();
         Bundle bdl = new Bundle();
-        bdl.putString(EXTRA_MESSAGE, String.valueOf(message));
+        bdl.putInt(EXTRA_MESSAGE, (message));
         f.setArguments(bdl);
         return f;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        String message = getArguments().getString(EXTRA_MESSAGE);
+      int  message = getArguments().getInt(EXTRA_MESSAGE);
         if (!imageloaded) {
             v = inflater.inflate(R.layout.homepage_layout, container, false);
             ImageView imageView = (ImageView) v.findViewById(R.id.home_imageView);
-            imageView.setImageResource(Integer.parseInt(message));
+            imageView.setImageResource(message);
             imageloaded = true;
         }
         return v;

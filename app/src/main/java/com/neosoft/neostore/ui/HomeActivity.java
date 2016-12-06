@@ -35,6 +35,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case 1:
                 break;
+            case 2:
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new TableFragment(),TableFragment.class.getSimpleName())
+                        .commit();
             default:
                 break;
         }
@@ -70,6 +74,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        switch (item.getItemId()){
+            case R.id.nav_tables:
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new TableFragment(),HomepageFragment.class.getSimpleName())
+                        .commit();
+                break;
+        }
         return true;
     }
 

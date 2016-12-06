@@ -1,11 +1,11 @@
 package com.neosoft.neostore.serviceapi;
 
-import android.util.Log;
-
+import com.neosoft.neostore.model.Product.ProductResponseModel;
 import com.neosoft.neostore.model.login.LoginResponseModel;
 import com.neosoft.neostore.model.register.RegisterResponseModel;
 
 import okhttp3.FormBody;
+import okhttp3.HttpUrl;
 import okhttp3.RequestBody;
 
 import static com.neosoft.neostore.serviceapi.UserAPI.LOGIN_URL;
@@ -39,4 +39,16 @@ public class GetServices{
         ser.execute();
     }
 
+    public void getProductlist(String productid, ApiResponse responseListener)
+    {
+
+        HttpUrl url = new HttpUrl.Builder().scheme("http")
+                .host("staging.php-dev.in")
+                .port(8844)
+                .addPathSegments("trainingapp/api/products/getList")
+                .addQueryParameter("product_category_id",productid)
+                .build();
+        Services<ProductResponseModel> ser = new Services<>(url.toString(), responseListener,ProductResponseModel.class);
+        ser.execute();
+    }
 }
