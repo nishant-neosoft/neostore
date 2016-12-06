@@ -19,7 +19,6 @@ public class DataModel {
     @SerializedName("rating")
     private String tableRating;
 
-    //private String tableRs;
     public String getTableImage() {
         return tableImage;
     }
@@ -51,14 +50,6 @@ public class DataModel {
     public void setTablePrice(String tablePrice) {
         this.tablePrice = tablePrice;
     }
-
-    /*public String getTableRs() {
-        return tableRs;
-    }
-
-    public void setTableRs(String tableRs) {
-        this.tableRs = tableRs;
-    }*/
 
     public String getTableRating() {
         return tableRating;

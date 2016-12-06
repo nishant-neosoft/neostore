@@ -10,29 +10,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
+import com.bumptech.glide.Glide;
 import com.neosoft.neostore.model.Product.DataModel;
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.ui.TableFragment;
-
-import java.util.ArrayList;
 import java.util.List;
-
+import static com.neosoft.neostore.R.id.imgTables;
 
 public class TableAdapter extends BaseAdapter implements View.OnClickListener {
+    Context mContext;
     private List<DataModel> mData;
     private static LayoutInflater inflater=null;
     public Resources res;
     DataModel tempValues=null;
     int i=0;
-
     public TableAdapter(Context context, List<DataModel> data, Resources resLocal) {
+        mContext = context;
         mData=data;
         res = resLocal;
         inflater = ( LayoutInflater )context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    }
-
-    @Override
+    }@Override
     public void onClick(View v) {
         Log.v("TableAdapter", "=====Row button clicked=====");
     }
@@ -43,7 +40,6 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
             return 1;
         return mData.size();
     }
-
     @Override
     public Object getItem(int position) {
         return position;
@@ -65,7 +61,6 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         View vi = convertView;
         ViewHolder holder;
         if(convertView==null){
@@ -76,7 +71,7 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
             holder.tablePrice = (TextView) vi.findViewById(R.id.textTablePrice);
             holder.tableRs=(TextView)vi.findViewById(R.id.textTableRs);
             holder.tableRatingBar=(RatingBar) vi.findViewById(R.id.tableRatingBar);
-            holder.tableImage=(ImageView)vi.findViewById(R.id.imgTables);
+            holder.tableImage=(ImageView)vi.findViewById(imgTables);
             vi.setTag( holder );
         }
         else
@@ -90,36 +85,28 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
         else
         {
             tempValues=null;
-            tempValues = ( DataModel ) mData.get( position );
-
-
+            tempValues = (DataModel) mData.get( position );
             Log.e("Table Title",mData.get(position).getTableTitle());
-
-          holder.tableName.setText( tempValues.getTableTitle() );
+            holder.tableName.setText( tempValues.getTableTitle() );
             holder.tableStoreName.setText( tempValues.getTableShop() );
             holder.tablePrice.setText( tempValues.getTablePrice() );
-           // holder.tableRs.setText( tempValues.getTableRs() );
-       //     holder.tableRatingBar.setRating(Float.parseFloat(tempValues.getTableRating()));
             holder.tableImage.setImageResource(res.getIdentifier(
                             ""+tempValues.getTableImage()
                             ,null,null));
-
             vi.setOnClickListener(new OnItemClickListener(position));
+            Glide.with(mContext)
+                    .load(tempValues.getTableImage())
+                    .into(holder.tableImage);
         }
         return vi;
     }
-
-        private class OnItemClickListener  implements View.OnClickListener {
-
+    private class OnItemClickListener  implements View.OnClickListener {
         private int mPosition;
-
         OnItemClickListener(int position){
             mPosition = position;
         }
-
         @Override
         public void onClick(View arg0) {
-
             TableFragment fragment = new TableFragment();
             fragment.onItemClick(mPosition);
         }

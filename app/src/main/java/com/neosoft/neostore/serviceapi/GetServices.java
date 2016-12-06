@@ -48,10 +48,7 @@ public class GetServices{
                 .addPathSegments("trainingapp/api/products/getList")
                 .addQueryParameter("product_category_id",productid)
                 .build();
-//        Request request = new Request.Builder().url(PRODUCTS_URL).get(requestBody).build();
         Services<ProductResponseModel> ser = new Services<>(url.toString(), responseListener,ProductResponseModel.class);
         ser.execute();
     }
-
-//    http://staging.php-dev.in:8844/trainingapp/api/products/getList?product_category_id=2
 }

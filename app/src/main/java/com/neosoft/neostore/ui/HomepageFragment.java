@@ -17,8 +17,6 @@ import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-
-
 public class HomepageFragment extends Fragment {
 
     private View rootView;
