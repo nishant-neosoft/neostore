@@ -25,5 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddressActivity"
+            android:theme="@style/AppTheme.WhiteBackground" />
+        <activity
+            android:name=".AddAddressActivity"
+            android:theme="@style/AppTheme.WhiteBackground" />
     </application>
 </manifest>
