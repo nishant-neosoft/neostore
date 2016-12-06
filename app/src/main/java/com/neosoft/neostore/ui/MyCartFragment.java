@@ -2,11 +2,9 @@ package com.neosoft.neostore.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Spinner;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.neosoft.neostore.R;
@@ -21,19 +19,14 @@ public class MyCartFragment extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> friendsList;
-    private TextView totalClassmates;
-    private SwipeLayout swipeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_cart_items);
-
-        listView = (ListView)findViewById(R.id.list_item);
-
+        listView = (ListView) findViewById(R.id.list_item);
         friendsList = new ArrayList<>();
         getDataFromFile();
-        setListViewHeader();
         setListViewAdapter();
     }
 
@@ -58,23 +51,14 @@ public class MyCartFragment extends AppCompatActivity {
             }
         }
     }
-    private void setListViewHeader() {
-        LayoutInflater inflater = getLayoutInflater();
-        View header = inflater.inflate(R.layout.header_listview, listView, false);
-        totalClassmates = (TextView) header.findViewById(R.id.total);
-        swipeLayout = (SwipeLayout)header.findViewById(R.id.swipe_layout);
-        listView.addHeaderView(header);
-    }
 
     private void setListViewAdapter() {
         adapter = new ProdList(this, R.layout.list_single, friendsList);
         listView.setAdapter(adapter);
-        totalClassmates.setText("(" + friendsList.size() + ")");
     }
 
     public void updateAdapter() {
-        adapter.notifyDataSetChanged(); //update adapter
-        totalClassmates.setText("(" + friendsList.size() + ")"); //update total friends in list
+        adapter.notifyDataSetChanged();
     }
 
 }
