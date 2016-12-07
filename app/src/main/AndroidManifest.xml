@@ -16,17 +16,21 @@
             android:label="@string/title_activity_register_screen" />
         <activity
             android:name=".ui.HomeActivity"
-            android:label="HomeScreen" />
+            android:label="HomeScreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login">
 
         </activity>
+            android:name=".AddressActivity"
+            android:theme="@style/AppTheme.WhiteBackground" />
         <activity
-            android:name=".ui.MyCartFragment"
-            android:label="MyCartFragment" ><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+            android:name=".AddAddressActivity"
+            android:theme="@style/AppTheme.WhiteBackground" />
     </application>
 </manifest>

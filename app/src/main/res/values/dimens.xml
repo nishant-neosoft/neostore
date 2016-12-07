@@ -10,4 +10,6 @@
     <dimen name="prod_list_type_top_margin">25dp</dimen>
     <dimen name="prod_list_type_bottom_margin">15dp</dimen>
     <dimen name="spinner_qty">45dp</dimen>
+    <dimen name="add_address_edittext_leftpadding">10dp</dimen>
+
 </resources>

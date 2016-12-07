@@ -20,6 +20,7 @@ public class Validate {
     public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
     public static String ERROR_INVALID_PASSWORD = "Please enter more than 5";
     public static String ERROR_CONFIRM_PASSWORD = "Please enter correct password";
+    public static String ERROR_INVALID_PHONE = "Please enter correct phone no";
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                     "\\@" +
@@ -126,16 +127,18 @@ public class Validate {
             txtGenErr.setVisibility(View.INVISIBLE);
             isValid=true;
         }
-
         if ( isEmpty( editphoneNo ) )
         {
             editphoneNo.setError( ERROR_EMPTY_VALUE ); return isValid = false;
+        }
+        if( ! equals(editphoneNo.getText().length() >10))
+        {
+            editphoneNo.setError(ERROR_INVALID_PHONE); return  isValid = false;
         }
         else
         {
             editphoneNo.setError( null ); isValid = true;
         }
-
         return isValid;
     }
 

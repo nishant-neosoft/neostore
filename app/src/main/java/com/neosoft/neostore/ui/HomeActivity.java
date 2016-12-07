@@ -1,6 +1,5 @@
 package com.neosoft.neostore.ui;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -38,13 +37,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         new HomepageFragment(),HomepageFragment.class.getSimpleName())
                         .commit();
                 break;
+            case 1:
+                break;
+            case 2:
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new TableFragment(),TableFragment.class.getSimpleName())
+                        .commit();
             default:
                 break;
         }
     }
 public boolean onTouchEvent(MotionEvent event){
-
-
     return false;
 }
     private void initDrawer() {
@@ -80,16 +83,22 @@ public boolean onTouchEvent(MotionEvent event){
         int selectedId = item.getItemId();
         switch (selectedId) {
             case R.id.nav_mycart:
-                Intent intent = new Intent(getApplicationContext(),HomepageFragment.class);
+                Intent intent = new Intent(getApplicationContext(), HomepageFragment.class);
                 startActivity(intent);
                 break;
+
             case R.id.nav_tables:
-            Intent intent1 = new Intent(getApplicationContext(),MyCartFragment.class);
-            startActivity(intent1);
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new TableFragment(), HomepageFragment.class.getSimpleName())
+                        .commit();
+                break;
+
+            case R.id.nav_myorders:
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new MyCartFragment(), HomepageFragment.class.getSimpleName())
+                        .commit();
                 break;
         }
-        return true;
+    return true;
     }
-
-
 }

@@ -22,23 +22,30 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 	private ApiResponse<U> apiResponse;
 	private Class<U> responseType;
 	private ApiFailure apiError;
+	private Request request;
 
-	public Services(String url, RequestBody requestBody, ApiResponse apiResponse, ApiFailure apiFailure,
-			Class<U> responseType) {
+	public Services(String url, ApiResponse apiResponse, ApiFailure apiFailure,	Class<U> responseType) {
 		this.url = url;
 		this.requestBody = requestBody;
 		this.apiResponse = apiResponse;
 		this.apiError = apiFailure;
 		this.responseType = responseType;
+		request = new Request.Builder().url(url).post(requestBody).build();
+	}
+
+	public Services(String url, String key, String value, RequestBody requestBody, ApiResponse<U> apiResponse, ApiFailure failureListener, Class<U> responseType) {
+		this.url = url;
+		this.apiResponse = apiResponse;
+		this.responseType = responseType;
+		request = new Request.Builder().url(url).get().addHeader(key,value).build();
 	}
 
 	@Override protected String doInBackground(Void... requestBodies) {
 		String responseString = null;
 		try {
 			OkHttpClient client = new OkHttpClient();
-			Request request = new Request.Builder().url(url).post(requestBody).build();
 			Response response = client.newCall(request).execute();
-			responseString = response.body().string().toString();
+			responseString = response.body().string();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
