@@ -7,5 +7,5 @@ package com.neosoft.neostore.serviceapi;
 public interface ApiResponse<T> {
 
 	void onSuccess(T response);
-	void onError(String message);
+	//void onError(String message);
 }
