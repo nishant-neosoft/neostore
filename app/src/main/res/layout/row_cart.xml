@@ -35,44 +35,77 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            >
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:id="@+id/imgCartItems"
-            android:padding="10dp"
-            android:background="@drawable/furniture1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:background="@color/colorWhite">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtName"
-            android:background="@color/colorWhite"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/imgCartItems"
-            android:layout_toRightOf="@+id/imgCartItems"
-            android:text="Stylish Modern Dinning Tables"
-            android:textSize="16sp"
-            android:layout_marginLeft="8dp"
-            android:textColor="@android:color/background_dark" />
+            <ImageView
+                android:id="@+id/imgCartItems"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/furniture1"
+                android:padding="10dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtType"
-            android:layout_below="@+id/txtName"
-            android:background="@color/colorWhite"
-            android:layout_toEndOf="@+id/imgCartItems"
-            android:layout_toRightOf="@+id/imgCartItems"
-            android:text="Aron Table Center"
-            android:textSize="10sp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="8dp"/>
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toEndOf="@+id/imgCartItems"
+                android:layout_toRightOf="@+id/imgCartItems"
+                android:background="@color/colorWhite"
+                android:text="Stylish Modern Dinning Tables"
+                android:textColor="@android:color/background_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtName"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/imgCartItems"
+                android:layout_toRightOf="@+id/imgCartItems"
+                android:background="@color/colorWhite"
+                android:text="Aron Table Center"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/txt_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtType"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/imgCartItems"
+                android:layout_toRightOf="@+id/imgCartItems"
+                android:background="@color/colorWhite"
+                android:text="Qty"
+                android:textColor="@color/colorgray20"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txt_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/txtType"
+                android:layout_alignRight="@+id/txtType"
+                android:layout_alignTop="@+id/txt_qty"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/background_light"
+                android:text="Price" />
+
+            <ImageView
+                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:src="@drawable/rupee_india"
+                android:layout_alignBottom="@+id/txt_qty"
+                android:layout_toLeftOf="@+id/txt_price"
+                android:layout_toStartOf="@+id/txt_price"
+                android:background="@color/colorWhite" />
         </RelativeLayout>
     </LinearLayout>
 </com.daimajia.swipe.SwipeLayout>

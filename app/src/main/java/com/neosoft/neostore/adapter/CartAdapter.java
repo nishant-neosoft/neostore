@@ -2,21 +2,25 @@ package com.neosoft.neostore.adapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.neosoft.neostore.R;
 import com.neosoft.neostore.model.mycart.Datum;
+import com.neosoft.neostore.model.mycart.MyCartResponseModel;
 import com.neosoft.neostore.model.mycart.Product;
 import com.neosoft.neostore.ui.MyCartFragment;
 
 import java.util.List;
 
+import static com.neosoft.neostore.R.id.btn_login;
 import static com.neosoft.neostore.R.id.imgCartItems;
 
 public class CartAdapter extends BaseAdapter implements View.OnClickListener{
@@ -25,6 +29,7 @@ public class CartAdapter extends BaseAdapter implements View.OnClickListener{
     private static LayoutInflater inflater=null;
     public Resources res;
     Datum product=null;
+    MyCartResponseModel cartResponseModel =null;
     public CartAdapter(Context context, List<Datum> data, Resources resLocal) {
         mContext = context;
         mData=data;
@@ -50,7 +55,7 @@ public class CartAdapter extends BaseAdapter implements View.OnClickListener{
     }
 
     public static class ViewHolder{
-        TextView name,type;
+        TextView name,type,qty,price;
         ImageView prodImg;
     }
 
@@ -64,6 +69,8 @@ public class CartAdapter extends BaseAdapter implements View.OnClickListener{
             holder.name = (TextView) view.findViewById(R.id.txtName);
             holder.type=(TextView)view.findViewById(R.id.txtType);
             holder.prodImg=(ImageView)view.findViewById(imgCartItems);
+            holder.qty = (TextView) view.findViewById(R.id.txt_qty);
+            holder.price = (TextView) view.findViewById(R.id.txt_price);
             view.setTag( holder );
         }
         else
@@ -79,7 +86,9 @@ public class CartAdapter extends BaseAdapter implements View.OnClickListener{
             product = (Datum) mData.get( position );
             Product prd = product.getProduct();
             holder.name.setText(prd.getName());
-            holder.type.setText(prd.getProductCategory());
+            holder.type.setText("("+prd.getProductCategory()+")");
+            holder.qty.setText(""+product.getQuantity());
+            holder.price.setText(""+prd.getCost());
             holder.prodImg.setImageResource(res.getIdentifier(
                     ""+prd.getProductImages()
                     ,null,null));
@@ -87,6 +96,7 @@ public class CartAdapter extends BaseAdapter implements View.OnClickListener{
             Glide.with(mContext)
                     .load(prd.getProductImages())
                     .into(holder.prodImg);
+
         }
         return view;
     }

@@ -83,19 +83,19 @@ public boolean onTouchEvent(MotionEvent event){
         int selectedId = item.getItemId();
         switch (selectedId) {
             case R.id.nav_mycart:
-                Intent intent = new Intent(getApplicationContext(), HomepageFragment.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_tables:
                 getFragmentManager().beginTransaction().add(R.id.container,
-                        new TableFragment(), HomepageFragment.class.getSimpleName())
+                        new TableFragment(), HomeActivity.class.getSimpleName())
                         .commit();
                 break;
 
             case R.id.nav_myorders:
                 getFragmentManager().beginTransaction().add(R.id.container,
-                        new MyCartFragment(), HomepageFragment.class.getSimpleName())
+                        new MyCartFragment(), HomeActivity.class.getSimpleName())
                         .commit();
                 break;
         }
