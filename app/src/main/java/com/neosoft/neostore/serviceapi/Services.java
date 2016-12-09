@@ -33,6 +33,13 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 		request = new Request.Builder().url(url).post(requestBody).build();
 	}
 
+	public Services(String url, ApiResponse<U> apiResponse, ApiFailure failureListener, Class<U> responseType) {
+		this.url = url;
+		this.apiResponse = apiResponse;
+		this.responseType = responseType;
+		request = new Request.Builder().url(url).get().build();
+	}
+
 	public Services(String url, String key, String value, RequestBody requestBody, ApiResponse<U> apiResponse, ApiFailure failureListener, Class<U> responseType) {
 		this.url = url;
 		this.apiResponse = apiResponse;

@@ -49,14 +49,14 @@ public class GetServices{
                 .addPathSegments("trainingapp/api/products/getList")
                 .addQueryParameter("product_category_id",productid)
                 .build();
-        Services<ProductResponseModel> ser = new Services<ProductResponseModel>(url.toString(),null,null, null,responseListener, failureListener, ProductResponseModel.class);
+        Services<ProductResponseModel> ser = new Services<ProductResponseModel>(url.toString(),responseListener, failureListener, ProductResponseModel.class);
         ser.execute();
     }
 
     public void getCartItems(String access_token, ApiResponse responseListener, ApiFailure failureListener)
     {
         RequestBody requestBody = new FormBody.Builder().build();
-        Services<MyCartResponseModel> ser = new Services<MyCartResponseModel>(CART_LIST_URL, "access_token", access_token,requestBody, responseListener, failureListener, MyCartResponseModel.class);
+        Services<MyCartResponseModel> ser = new Services<MyCartResponseModel>(CART_LIST_URL, String.valueOf("access_token"), String.valueOf(access_token),requestBody, responseListener, failureListener, MyCartResponseModel.class);
         ser.execute();
     }
 }
