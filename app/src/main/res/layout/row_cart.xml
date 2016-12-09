@@ -102,10 +102,10 @@
                 android:layout_height="20dp"
                 android:layout_width="15dp"
                 android:src="@drawable/rupee_india"
-                android:layout_alignBottom="@+id/txt_qty"
+                android:background="@color/colorWhite"
+                android:layout_alignBottom="@+id/txt_price"
                 android:layout_toLeftOf="@+id/txt_price"
-                android:layout_toStartOf="@+id/txt_price"
-                android:background="@color/colorWhite" />
+                android:layout_toStartOf="@+id/txt_price" />
         </RelativeLayout>
     </LinearLayout>
 </com.daimajia.swipe.SwipeLayout>

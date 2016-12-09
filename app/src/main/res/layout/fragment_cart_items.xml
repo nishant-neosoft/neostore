@@ -1,39 +1,38 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/list_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/background_light">
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-        <ListView
-            android:id="@+id/list_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:weightSum="2">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="bottom">
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_weight="1"
+            android:text="Total" />
 
-            <TextView
-                android:id="@+id/txtTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Total :"
-                android:textColor="@color/colorgray20" />
-            <TextView
-                android:id="@+id/txtFooter1"
-                android:layout_width="match_parent"
-                android:drawableLeft="@drawable/rupee_india"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:background="@color/colorWhite"
-                android:gravity="right" />
-        </RelativeLayout>
-    </RelativeLayout>
-</ScrollView>
+        <TextView
+            android:id="@+id/txtFooter1"
+            android:layout_width="0dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="" />
+    </LinearLayout>
+
+</LinearLayout>

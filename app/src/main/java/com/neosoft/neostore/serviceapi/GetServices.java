@@ -21,7 +21,7 @@ public class GetServices{
                 .add("email",email)
                 .add("password",pass)
                 .build();
-        Services<LoginResponseModel> loginResponseModelServices = new Services<LoginResponseModel>(LOGIN_URL, responseListener, failureListener,LoginResponseModel.class);
+        Services<LoginResponseModel> loginResponseModelServices = new Services<LoginResponseModel>(LOGIN_URL, requestBody,responseListener, failureListener,LoginResponseModel.class);
         loginResponseModelServices.execute();
     }
 
@@ -36,7 +36,7 @@ public class GetServices{
                 .add("gender",gender)
                 .add("phone_no",ph_no)
                 .build();
-        Services<RegisterResponseModel> ser = new Services<RegisterResponseModel>(REGISTER_URL, responseListener, failureListener,RegisterResponseModel.class);
+        Services<RegisterResponseModel> ser = new Services<RegisterResponseModel>(REGISTER_URL, requestBody,responseListener, failureListener,RegisterResponseModel.class);
         ser.execute();
     }
 
@@ -49,7 +49,7 @@ public class GetServices{
                 .addPathSegments("trainingapp/api/products/getList")
                 .addQueryParameter("product_category_id",productid)
                 .build();
-        Services<ProductResponseModel> ser = new Services<ProductResponseModel>(url.toString(), responseListener, failureListener, ProductResponseModel.class);
+        Services<ProductResponseModel> ser = new Services<ProductResponseModel>(url.toString(),null,null, null,responseListener, failureListener, ProductResponseModel.class);
         ser.execute();
     }
 

@@ -24,7 +24,7 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 	private ApiFailure apiError;
 	private Request request;
 
-	public Services(String url, ApiResponse apiResponse, ApiFailure apiFailure,	Class<U> responseType) {
+	public Services(String url,RequestBody requestBody, ApiResponse apiResponse, ApiFailure apiFailure,	Class<U> responseType) {
 		this.url = url;
 		this.requestBody = requestBody;
 		this.apiResponse = apiResponse;
