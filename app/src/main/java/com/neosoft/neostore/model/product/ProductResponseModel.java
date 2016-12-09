@@ -1,4 +1,4 @@
-package com.neosoft.neostore.model.Product;
+package com.neosoft.neostore.model.product;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
