@@ -1,5 +1,6 @@
 package com.neosoft.neostore.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,10 +10,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.neosoft.neostore.R;
+
+import static com.neosoft.neostore.R.id.nav_mycart;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     TextView mycart;
@@ -43,11 +47,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
     }
-
+public boolean onTouchEvent(MotionEvent event){
+    return false;
+}
     private void initDrawer() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.navlayout);
         navigationView.setNavigationItemSelectedListener(this);
-        badge_layout = (LinearLayout) MenuItemCompat.getActionView(navigationView.getMenu().findItem(R.id.nav_mycart));
+        badge_layout = (LinearLayout) MenuItemCompat.getActionView(navigationView.getMenu().findItem(nav_mycart));
         badge_layout.setGravity(Gravity.CENTER);
         mycart = new TextView(this);
         mycart.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -57,7 +63,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mycart.setGravity(Gravity.CENTER);
         mycart.setTextColor(getResources().getColor(R.color.colorWhite));
         badge_layout.addView(mycart);
-
     }
 
     @Override
@@ -75,15 +80,25 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
-        switch (item.getItemId()){
+        int selectedId = item.getItemId();
+        switch (selectedId) {
+            case R.id.nav_mycart:
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+                break;
+
             case R.id.nav_tables:
                 getFragmentManager().beginTransaction().add(R.id.container,
-                        new TableFragment(),HomepageFragment.class.getSimpleName())
+                        new TableFragment(), HomeActivity.class.getSimpleName())
+                        .commit();
+                break;
+
+            case R.id.nav_myorders:
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new MyCartFragment(), HomeActivity.class.getSimpleName())
                         .commit();
                 break;
         }
-        return true;
+    return true;
     }
-
-
 }
