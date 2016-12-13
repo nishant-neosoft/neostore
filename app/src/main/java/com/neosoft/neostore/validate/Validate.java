@@ -13,6 +13,14 @@ import java.util.regex.Pattern;
 
 public class Validate {
 
+    public static String ERROR_EMPTY_VALUE = "Please enter value";
+    public static String ERROR_EMPTY_GENDER_VALUE = "Please select gender";
+    public static String ERROR_EMPTY_EMAIL = "Please enter Email!";
+    public static String ERROR_INVALID_EMAIL = "Please enter valid Email!";
+    public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
+    public static String ERROR_INVALID_PASSWORD = "Please enter more than 5";
+    public static String ERROR_CONFIRM_PASSWORD = "Please enter correct password";
+    public static String ERROR_INVALID_PHONE = "Please enter correct phone no";
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                     "\\@" +
@@ -21,12 +29,6 @@ public class Validate {
                     "\\." +
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+");
-    public static String ERROR_EMPTY_VALUE = "Please enter value";
-    public static String ERROR_EMPTY_GENDER_VALUE = "Please select gender";
-    public static String ERROR_EMPTY_EMAIL = "Please enter Email!";
-    public static String ERROR_INVALID_EMAIL = "Please enter valid Email!";
-    public static String ERROR_EMPTY_PASSWORD = "Please enter Password";
-    public static String ERROR_CONFIRM_PASSWORD = "Please enter correct password";
 
     public boolean loginValidate(EditText editEmail, EditText editPass) {
         boolean isValid;
@@ -83,12 +85,17 @@ public class Validate {
             isValid = true;
         }
 
-        if (isEmpty(editPass)) {
-            editPass.setError(ERROR_EMPTY_PASSWORD);
-            return isValid = false;
-        } else {
-            editPass.setError(null);
-            isValid = true;
+        if (isEmpty(editPass))
+        {
+            editPass.setError( ERROR_EMPTY_PASSWORD ); return isValid = false;
+        }
+        if(editPass.length() > 6)
+        {
+            editPass.setError( ERROR_EMPTY_PASSWORD ); return isValid = false;
+        }
+        else
+        {
+            editPass.setError( null ); isValid = true;
         }
 
         if (isEmpty(editCPass)) {
@@ -111,15 +118,18 @@ public class Validate {
             txtGenErr.setVisibility(View.INVISIBLE);
             isValid = true;
         }
-
-        if (isEmpty(editphoneNo)) {
-            editphoneNo.setError(ERROR_EMPTY_VALUE);
-            return isValid = false;
-        } else {
-            editphoneNo.setError(null);
-            isValid = true;
+        if ( isEmpty( editphoneNo ) )
+        {
+            editphoneNo.setError( ERROR_EMPTY_VALUE ); return isValid = false;
         }
-
+        if( ! equals(editphoneNo.getText().length() >10))
+        {
+            editphoneNo.setError(ERROR_INVALID_PHONE); return  isValid = false;
+        }
+        else
+        {
+            editphoneNo.setError( null ); isValid = true;
+        }
         return isValid;
     }
 

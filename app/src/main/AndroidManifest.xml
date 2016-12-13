@@ -16,7 +16,9 @@
             android:label="@string/title_activity_register_screen" />
         <activity
             android:name=".ui.HomeActivity"
-            android:label="HomeScreen" />
+            android:label="HomeScreen" >
+
+        </activity>
         <activity
             android:name=".ui.LoginActivity"
             android:label="@string/title_activity_login">

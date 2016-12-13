@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.neosoft.neostore.adapter.AddressAdapter;
+
 import java.util.ArrayList;
 
 /**

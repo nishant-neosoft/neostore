@@ -1,4 +1,4 @@
-package com.neosoft.neostore;
+package com.neosoft.neostore.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.neosoft.neostore.AddressDetails;
+import com.neosoft.neostore.R;
 
 import java.util.ArrayList;
 

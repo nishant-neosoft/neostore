@@ -12,8 +12,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.neosoft.neostore.model.product.DataModel;
 import com.neosoft.neostore.R;
-import com.neosoft.neostore.model.Product.DataModel;
 import com.neosoft.neostore.ui.TableFragment;
 
 import java.util.List;
@@ -60,6 +60,7 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
          TextView tablePrice;
          RatingBar tableRatingBar;
          ImageView tableImage;
+        public TextView prodName;
     }
 
     @Override
