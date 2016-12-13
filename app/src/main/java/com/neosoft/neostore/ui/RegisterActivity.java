@@ -14,7 +14,7 @@ import com.neosoft.neostore.model.register.RegisterResponseModel;
 import com.neosoft.neostore.serviceapi.ApiResponse;
 import com.neosoft.neostore.serviceapi.GetServices;
 
-public class RegisterScreen extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

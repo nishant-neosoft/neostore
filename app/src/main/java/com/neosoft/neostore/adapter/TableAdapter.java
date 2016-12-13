@@ -10,11 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
-import com.neosoft.neostore.model.Product.DataModel;
 import com.neosoft.neostore.R;
+import com.neosoft.neostore.model.Product.DataModel;
 import com.neosoft.neostore.ui.TableFragment;
+
 import java.util.List;
+
 import static com.neosoft.neostore.R.id.imgTables;
 
 public class TableAdapter extends BaseAdapter implements View.OnClickListener {
@@ -90,13 +93,10 @@ public class TableAdapter extends BaseAdapter implements View.OnClickListener {
             holder.tableName.setText( tempValues.getTableTitle() );
             holder.tableStoreName.setText( tempValues.getTableShop() );
             holder.tablePrice.setText( tempValues.getTablePrice() );
-            holder.tableImage.setImageResource(res.getIdentifier(
-                            ""+tempValues.getTableImage()
-                            ,null,null));
-            vi.setOnClickListener(new OnItemClickListener(position));
             Glide.with(mContext)
                     .load(tempValues.getTableImage())
                     .into(holder.tableImage);
+            vi.setOnClickListener(new OnItemClickListener(position));
         }
         return vi;
     }

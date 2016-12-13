@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#9E0100</color>
+    <color name="colorPrimaryDark">#9e0100</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorFreeSpeechRed">#BB0100</color>
-    <color name="colorRuby">#9E0100</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorFreeSpeechRed">#bb0100</color>
+    <color name="colorRuby">#9e0100</color>
     <color name="colorgray31">#4f4f4f</color>
-    <color name="colornightrider">#2C2B2B</color>
+    <color name="colornightrider">#2c2b2b</color>
     <color name="colorgray20">#333333</color>
     <color name="colorGold">#FFD700</color>
+    <color name="colorLightGray">#D3D3D3</color>
 </resources>

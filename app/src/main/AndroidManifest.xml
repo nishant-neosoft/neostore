@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.RegisterScreen"
+            android:name=".ui.RegisterActivity"
             android:label="@string/title_activity_register_screen" />
         <activity
             android:name=".ui.HomeActivity"
@@ -22,14 +22,15 @@
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"  />
             </intent-filter>
         </activity>
         <activity
             android:name=".AddressActivity"
-            android:theme="@style/AppTheme.WhiteBackground" />
+            android:theme="@style/Theme.AppTheme.NoActionBar.Toolbar">
+        </activity>
         <activity
             android:name=".AddAddressActivity"
-            android:theme="@style/AppTheme.WhiteBackground" />
+            android:theme="@style/Theme.AppTheme.NoActionBar.Toolbar" />
     </application>
 </manifest>

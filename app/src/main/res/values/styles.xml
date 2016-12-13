@@ -84,6 +84,8 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
     </style>
 
     <style name="TextViewsinAddAddress">
@@ -96,11 +98,25 @@
     </style>
 
     <style name="EditTextInAddAddress">
+        <item name="android:textColor">@color/colorgray20</item>
+        <item name="android:textColorHint">@color/colorgray31</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:background">@color/colorWhite</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ems">1</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Small</item>
         <item name="android:gravity">top|left</item>
         <item name="android:paddingLeft">@dimen/add_address_edittext_leftpadding</item>
+    </style>
+
+    <style name="Theme.AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar" >
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorFreeSpeechRed</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
     </style>
 </resources>

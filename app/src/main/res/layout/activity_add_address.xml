@@ -1,92 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/tv_side_pad">
-
-    <TextView
-        style="@style/TextViewsinAddAddress"
-        android:text="ADDRESS" />
-
-    <EditText
-        android:id="@+id/et_address_add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lines="5"
-        android:paddingLeft="@dimen/add_address_edittext_leftpadding"
-        android:gravity="top|left"
-        android:hint="add address" />
-
-    <TextView
-        style="@style/TextViewsinAddAddress"
-        android:text="LANDMARK" />
-
-    <EditText
-        style="@style/EditTextInAddAddress"
-        android:hint="landmark" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        android:orientation="vertical"
+        android:padding="@dimen/tv_side_pad">
+
+        <TextView
+            style="@style/TextViewsinAddAddress"
+            android:text="ADDRESS" />
+
+        <EditText
+            android:id="@+id/et_address_add"
+            style="@style/EditTextInAddAddress"
+            android:hint="add address"
+            android:lines="5"
+            android:textAppearance="@android:style/TextAppearance.Medium" />
+
+        <TextView
+            style="@style/TextViewsinAddAddress"
+            android:text="LANDMARK" />
+
+        <EditText
+            android:id="@+id/et_landmark"
+            style="@style/EditTextInAddAddress"
+            android:hint="landmark" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            <TextView
-                style="@style/TextViewsinAddAddress"
-                android:text="CITY" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <EditText
-                style="@style/EditTextInAddAddress"
-                android:hint="city" />
+                <TextView
+                    style="@style/TextViewsinAddAddress"
+                    android:text="CITY" />
 
-            <TextView
-                style="@style/TextViewsinAddAddress"
-                android:text="ZIP CODE" />
+                <EditText
+                    android:id="@+id/et_city"
+                    style="@style/EditTextInAddAddress"
+                    android:hint="city" />
 
-            <EditText
-                style="@style/EditTextInAddAddress"
-                android:hint="zipcode"
-                android:inputType="phone"
-                android:maxLength="6" />
+                <TextView
+                    style="@style/TextViewsinAddAddress"
+                    android:text="ZIP CODE" />
+
+                <EditText
+                    android:id="@+id/et_zipcode"
+                    style="@style/EditTextInAddAddress"
+                    android:hint="zipcode"
+                    android:inputType="phone"
+                    android:maxLength="6" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewsinAddAddress"
+                    android:text="STATE" />
+
+                <EditText
+                    android:id="@+id/et_state"
+                    style="@style/EditTextInAddAddress"
+                    android:hint="state" />
+
+                <TextView
+                    style="@style/TextViewsinAddAddress"
+                    android:text="COUNTRY" />
+
+                <EditText
+                    android:id="@+id/et_country"
+                    style="@style/EditTextInAddAddress"
+                    android:hint="country" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/TextViewsinAddAddress"
-                android:text="STATE" />
-
-            <EditText
-                style="@style/EditTextInAddAddress"
-                android:hint="state" />
-
-            <TextView
-                style="@style/TextViewsinAddAddress"
-                android:text="COUNTRY" />
-
-            <EditText
-                style="@style/EditTextInAddAddress"
-                android:hint="country" />
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/btn_save_address"
+            style="@style/SubmitButtoninWhite.Red"
+            android:background="@drawable/submit_red_style"
+            android:text="SAVE ADDRESS" />
     </LinearLayout>
-
-    <Button
-        style="@style/SubmitButtoninWhite.Red"
-        android:background="@drawable/submit_red_style"
-        android:text="SAVE ADDRESS" />
-</LinearLayout>
+</ScrollView>
