@@ -6,4 +6,7 @@
     <dimen name="submit_up_pad">30dp</dimen>
     <dimen name="submit_down_pad">30dp</dimen>
     <dimen name="neostorebottom_pad">30dp</dimen>
+    <dimen name="prodTitle">25dp</dimen>
+    <dimen name="prodCategory">15dp</dimen>
+    <dimen name="prodCategoryType">10dp</dimen>
 </resources>

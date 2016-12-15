@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtProdName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="20dp"
+        android:text="6 Seater Dining Table for Family"
+        android:textColor="@color/prodHeadText"
+        android:textSize="@dimen/prodTitle"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtProdCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="10dp"
+        android:text="Category - Tables"
+        android:textColor="@color/prodHeadCategory"
+        android:textSize="@dimen/prodCategory" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtProdCategoryType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/colorWhite"
+            android:paddingTop="5dp"
+            android:text="Future Furniture Centre"
+            android:textSize="@dimen/prodCategoryType" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="@color/colorGold"
+            android:rating="1"
+            android:stepSize="0.1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/txtRs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtProdCategoryType"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                android:text="Rs."
+                android:textColor="@color/colorFreeSpeechRed"
+                android:textSize="@dimen/prodTitle" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                android:paddingLeft="3dp"
+                android:text="27000"
+                android:textColor="@color/colorFreeSpeechRed"
+                android:textSize="@dimen/prodTitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:src="@drawable/share_btn" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_imgViewer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_cost">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerImg"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/colorWhite" />
+
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicate"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/viewpagerImg"
+            android:background="@color/colorWhite" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_imgViewer"
+        android:background="@color/colorWhite"
+        android:text="Description"
+        android:textAllCaps="true"
+        android:textColor="@color/colornightrider"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDescriptionContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDescription"
+        android:background="@color/colorWhite"
+        android:text="Some demo text will be here."
+        android:textSize="@dimen/prodCategory"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <Button
+            android:id="@+id/btnBuy"
+            style="@style/BuyButton"
+            android:layout_weight="1"
+            android:paddingRight="5dp" />
+
+        <Button
+            android:id="@+id/btnRate"
+            style="@style/RateButton"
+            android:layout_weight="1"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -51,7 +51,7 @@ public class LoginActivity extends Activity {
                     public void onSuccess(LoginResponseModel response) {
                         Toast.makeText(getApplicationContext(), response.getMessage().toString(), Toast.LENGTH_LONG).show();
                         Log.e("zzz", response.toString());
-                        Util.saveLoginStatus();
+                        Util.saveLoginStatus(response);
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     }
                 }, new ErrorHandler());

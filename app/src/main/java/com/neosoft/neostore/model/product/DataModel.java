@@ -4,6 +4,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class DataModel {
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @SerializedName("id")
+    private Integer id;
+
     @SerializedName("product_images")
     private String tableImage;
 

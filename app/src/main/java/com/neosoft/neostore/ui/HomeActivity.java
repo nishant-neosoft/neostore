@@ -83,8 +83,9 @@ public boolean onTouchEvent(MotionEvent event){
         int selectedId = item.getItemId();
         switch (selectedId) {
             case R.id.nav_mycart:
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
+                getFragmentManager().beginTransaction().add(R.id.container,
+                        new ProductDetailsFragment(), HomeActivity.class.getSimpleName())
+                        .commit();
                 break;
 
             case R.id.nav_tables:

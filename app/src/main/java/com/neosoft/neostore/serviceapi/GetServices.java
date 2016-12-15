@@ -3,11 +3,13 @@ package com.neosoft.neostore.serviceapi;
 import com.neosoft.neostore.model.login.LoginResponseModel;
 import com.neosoft.neostore.model.mycart.MyCartResponseModel;
 import com.neosoft.neostore.model.product.ProductResponseModel;
+import com.neosoft.neostore.model.productdetails.ProductDetailsResponseModel;
 import com.neosoft.neostore.model.register.RegisterResponseModel;
 
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.RequestBody;
+import okhttp3.internal.http.HttpMethod;
 
 import static com.neosoft.neostore.serviceapi.UserAPI.CART_LIST_URL;
 import static com.neosoft.neostore.serviceapi.UserAPI.LOGIN_URL;
@@ -50,6 +52,18 @@ public class GetServices{
                 .addQueryParameter("product_category_id",productid)
                 .build();
         Services<ProductResponseModel> ser = new Services<ProductResponseModel>(url.toString(),responseListener, failureListener, ProductResponseModel.class);
+        ser.execute();
+    }
+
+    public void getProductDetails(String productid, ApiResponse responseListener, ApiFailure failureListener)
+    {
+        HttpUrl url = new HttpUrl.Builder().scheme("http")
+            .host("staging.php-dev.in")
+            .port(8844)
+            .addPathSegments("trainingapp/api/products/getDetail")
+            .addQueryParameter("product_id",productid)
+            .build();
+        Services<ProductDetailsResponseModel> ser = new Services<ProductDetailsResponseModel>(url.toString(),responseListener, failureListener, ProductDetailsResponseModel.class);
         ser.execute();
     }
 

@@ -68,7 +68,8 @@ public class Services<U> extends AsyncTask<Void, Void, String> {
 			e.printStackTrace();
 		}
 		if (status != 200) {
-			apiError.onError(String.valueOf(status));
+			//apiError.onError(String.valueOf(response));
+			Log.e("ERRRRRRRRRR---->>>","SOME ERROR OCCURED");
 		} else {
 			Gson gson = new Gson();
 			apiResponse.onSuccess(gson.fromJson(response, responseType));

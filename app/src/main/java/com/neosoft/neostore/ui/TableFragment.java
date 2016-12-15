@@ -34,12 +34,8 @@ public class TableFragment extends Fragment implements ApiFailure {
         services.getProductlist("1", new ApiResponse() {
             @Override
             public void onSuccess(Object response) {
-                Log.e("zzz", response.toString());
                 ProductResponseModel responseModel = (ProductResponseModel) response;
-                for(DataModel model:responseModel.getData()){
-                    Log.e("DATA",model.getTableTitle() + " :::::");
-                }
-                adapter=new TableAdapter(getActivity(), responseModel.getData(),res );
+                adapter=new TableAdapter(getActivity(), responseModel.getData(),res);
                 list.setAdapter( adapter );
             }
         },new ErrorHandler());
@@ -53,19 +49,12 @@ public class TableFragment extends Fragment implements ApiFailure {
     public void onItemClick(int mPosition)
     {
         DataModel tempValues = (DataModel)CustomListViewValuesArr.get(mPosition);
+        Log.e("Resposne--->>>",tempValues.getId().toString());
+//        GetServices services = new GetServices();
+//        services.getProductDetails();
     }
-
     @Override
     public String onError(String msg) {
         return msg;
     }
 }
-
-
-
-
-
-
-
-
-

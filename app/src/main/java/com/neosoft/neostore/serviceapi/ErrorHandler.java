@@ -19,6 +19,11 @@ public class ErrorHandler implements ApiFailure {
             msg = "failure";
             return msg;
         }
+        if(msg.equals("402"))
+        {
+            msg = "failure";
+            return msg;
+        }
         else {
             return msg;
         }
